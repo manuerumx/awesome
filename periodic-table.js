@@ -1550,8 +1550,8 @@ function buildBodyMode() {
     card.innerHTML = `
       <style>.body-system-card[data-part="${key}"]::before { background: ${color}; }</style>
       <span class="body-system-emoji">${data.emoji}</span>
-      <span class="body-system-name">${data.name}</span>
-      <span class="body-system-hint">${BODY_PART_HINTS[key] || ''}</span>
+      <span class="body-system-name">${t('body.part.' + key + '.name') || data.name}</span>
+      <span class="body-system-hint">${t('body.part.' + key + '.hint') || BODY_PART_HINTS[key] || ''}</span>
       <div class="body-system-elements">
         ${data.elements.slice(0, 5).map(el => {
           const info = EL_BY_SYM[el.s];
@@ -1598,8 +1598,8 @@ function showBodyPart(partKey) {
       <div class="body-detail-header" style="background: ${color}22;">
         <span class="body-detail-emoji">${data.emoji}</span>
         <div class="body-detail-header-text">
-          <h3>${data.name}</h3>
-          <p>${data.desc}</p>
+          <h3>${t('body.part.' + partKey + '.name') || data.name}</h3>
+          <p>${t('body.part.' + partKey + '.desc') || data.desc}</p>
         </div>
       </div>
       <div class="body-detail-elements">
@@ -1613,7 +1613,7 @@ function showBodyPart(partKey) {
                 <div class="body-el-sym" style="background: ${catColor};">${el.s}</div>
                 <div class="body-el-info">
                   <div class="body-el-name">${tEl(info, 'name')}</div>
-                  <div class="body-el-role">${el.role}</div>
+                  <div class="body-el-role">${t('body.part.' + partKey + '.el.' + el.s + '.role') || el.role}</div>
                 </div>
                 <div class="body-el-bar-wrap">
                   <div class="body-el-bar" style="width:${(el.pct / maxPct) * 100}%;background:${catColor};"></div>
