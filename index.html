@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Awesome Periodic Table 🧪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="periodic-table.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>The Awesome Periodic Table <span class="emoji">🧪</span></h1>
+    <p>Click any element to discover its superpowers!</p>
+  </header>
+
+  <div class="mode-tabs">
+    <button class="mode-tab active" data-mode="explore">🔬 Explore</button>
+    <button class="mode-tab" data-mode="compare">⚖️ Compare</button>
+    <button class="mode-tab" data-mode="timeline">📜 Timeline</button>
+    <button class="mode-tab" data-mode="quiz">🎮 Quiz</button>
+    <button class="mode-tab" data-mode="molecule">⚗️ Build</button>
+    <button class="mode-tab" data-mode="race">🏁 Race</button>
+    <button class="mode-tab" data-mode="glossary">📖 Glossary</button>
+    <button class="mode-tab" data-mode="body">🫀 Inside You</button>
+  </div>
+
+  <!-- EXPLORE PANEL -->
+  <div class="panel active" id="panel-explore">
+    <div class="controls">
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="search" placeholder="Search by name, symbol, or number..." />
+      </div>
+    </div>
+    <div class="color-by-bar">
+      <span class="color-by-label">🎨 Color by:</span>
+      <div class="color-by-pills" id="colorByPills">
+        <button class="color-pill active" data-color="category">Category</button>
+        <button class="color-pill" data-color="state">State of Matter</button>
+        <button class="color-pill" data-color="discovery">Discovery Era</button>
+        <button class="color-pill" data-color="mass">Atomic Mass</button>
+        <button class="color-pill" data-color="radioactivity">Radioactivity</button>
+      </div>
+    </div>
+    <div class="filter-pills" id="filters">
+      <button class="pill active" data-cat="all">All</button>
+      <button class="pill" data-cat="alkali">Alkali Metals</button>
+      <button class="pill" data-cat="alkaline">Alkaline Earth</button>
+      <button class="pill" data-cat="transition">Transition Metals</button>
+      <button class="pill" data-cat="post-transition">Post-Transition</button>
+      <button class="pill" data-cat="metalloid">Metalloids</button>
+      <button class="pill" data-cat="nonmetal">Nonmetals</button>
+      <button class="pill" data-cat="halogen">Halogens</button>
+      <button class="pill" data-cat="noble">Noble Gases</button>
+      <button class="pill" data-cat="lanthanide">Lanthanides</button>
+      <button class="pill" data-cat="actinide">Actinides</button>
+    </div>
+    <div class="table-scroll">
+      <div class="table" id="table"></div>
+    </div>
+    <div class="legend">
+      <h3>🎨 Color Guide</h3>
+      <div class="legend-grid" id="legend"></div>
+    </div>
+  </div>
+
+  <!-- COMPARE PANEL -->
+  <div class="panel" id="panel-compare">
+    <div class="compare-banner">
+      <p>👆 Pick two elements to compare them side-by-side!</p>
+      <div class="compare-slots">
+        <div class="compare-slot" id="slot1">?</div>
+        <div style="font-weight: 700; font-size: 1.4rem;">vs</div>
+        <div class="compare-slot" id="slot2">?</div>
+        <button class="btn secondary" id="clearCompare">Reset</button>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <div class="table" id="table-compare"></div>
+    </div>
+    <div id="compareResult"></div>
+  </div>
+
+  <!-- TIMELINE PANEL -->
+  <div class="panel" id="panel-timeline">
+    <div class="timeline-container">
+      <div class="timeline-year" id="tlYear">1700</div>
+      <div class="timeline-info" id="tlInfo">Drag the slider to discover when each element was found!</div>
+      <input type="range" min="1650" max="2025" value="1700" class="timeline-slider" id="tlSlider" />
+      <div class="timeline-labels">
+        <span>1650</span><span>1800</span><span>1900</span><span>2025</span>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <div class="table" id="table-timeline"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ PANEL -->
+  <div class="panel" id="panel-quiz">
+    <div class="quiz-container">
+      <div class="quiz-header">
+        <div class="quiz-stat"><div class="label">Score</div><div class="value score" id="qScore">0</div></div>
+        <div class="quiz-stat"><div class="label">Streak 🔥</div><div class="value streak" id="qStreak">0</div></div>
+        <div class="quiz-stat"><div class="label">Best Streak</div><div class="value" id="qBest">0</div></div>
+        <div class="quiz-stat"><div class="label">Question</div><div class="value" id="qNum">1</div></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-question" id="qQuestion">Loading...</div>
+        <div class="quiz-options" id="qOptions"></div>
+        <div class="quiz-feedback" id="qFeedback"></div>
+        <div class="quiz-actions">
+          <button class="btn green" id="qNext" style="display:none;">Next Question →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOLECULE PANEL -->
+  <div class="panel" id="panel-molecule">
+    <div class="molecule-lab">
+      <div class="mol-result" id="molResult"></div>
+      <div class="mol-bench-area">
+        <h3>🧪 Lab Bench</h3>
+        <div class="mol-bench empty" id="molBench"></div>
+        <div class="mol-formula" id="molFormula"></div>
+        <div class="mol-actions">
+          <button class="btn secondary" id="molClear">Clear Bench</button>
+          <button class="btn" id="molHint">💡 Hint</button>
+        </div>
+      </div>
+      <div class="mol-palette-area">
+        <h3>⚛️ Elements — drag or click to add</h3>
+        <div class="mol-palette" id="molPalette"></div>
+      </div>
+      <div class="mol-recipes-area">
+        <h3>📖 Recipe Book <span class="mol-progress" id="molProgress">0 / 20</span></h3>
+        <div class="mol-recipes" id="molRecipes"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RACE PANEL -->
+  <div class="panel" id="panel-race">
+    <div class="race-hud">
+      <div class="race-stat"><div class="label">Time</div><div class="value" id="raceTimer">0.00s</div></div>
+      <div class="race-stat"><div class="label">Round</div><div class="value" id="raceRound">0 / 10</div></div>
+      <div class="race-stat"><div class="label">Best Avg</div><div class="value" id="raceBest">---</div></div>
+      <div class="race-stat"><div class="label">Difficulty</div><div class="value" id="raceDiffLabel">---</div></div>
+    </div>
+    <div class="race-prompt" id="racePrompt"></div>
+    <div class="table-scroll">
+      <div class="table" id="table-race"></div>
+    </div>
+  </div>
+
+  <!-- BODY PANEL -->
+  <div class="panel" id="panel-body">
+    <div class="body-container">
+      <div class="body-overview">
+        <h2>🫀 You Are Made of Elements!</h2>
+        <p class="body-subtitle">Your body is a walking chemistry lab. Click on any body part to discover what elements are inside!</p>
+        <div class="body-comp-bar" id="bodyCompBar"></div>
+        <div class="body-comp-legend" id="bodyCompLegend"></div>
+      </div>
+      <div class="body-systems-grid" id="bodySystemsGrid"></div>
+      <div class="body-detail" id="bodyDetail"></div>
+      <div class="body-fun-facts">
+        <h3>🤯 Mind-Blowing Body Facts</h3>
+        <div class="body-facts-grid" id="bodyFactsGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOSSARY PANEL -->
+  <div class="panel" id="panel-glossary">
+    <div class="glossary-container">
+      <div class="glossary-search-box">
+        <span>🔍</span>
+        <input type="text" id="glossarySearch" placeholder="Search terms..." />
+      </div>
+      <div class="glossary-grid" id="glossaryGrid"></div>
+    </div>
+  </div>
+
+  <footer>Made with ⚛️ atoms and 💛 for curious minds</footer>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="close-btn" id="closeBtn">✕</button>
+    <div class="modal-header">
+      <div class="modal-symbol" id="modalSymbol">
+        <div class="num" id="modalNum"></div>
+        <div class="sym" id="modalSym"></div>
+      </div>
+      <div class="modal-info">
+        <h2 id="modalName"></h2>
+        <span class="category" id="modalCategory"></span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="atom-container">
+        <svg class="atom-svg" id="atomSvg" viewBox="0 0 280 200"></svg>
+      </div>
+      <div class="fun-fact">
+        <span class="fact-label">💡 Cool Fact</span>
+        <p id="modalFact"></p>
+      </div>
+      <div class="what-if">
+        <span class="fact-label">🤔 What If?</span>
+        <p id="modalWhatIf"></p>
+      </div>
+      <div class="where">
+        <span class="fact-label">🌍 Where on Earth?</span>
+        <p id="modalWhere"></p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat"><div class="label">Atomic Mass</div><div class="value" id="modalMass"></div></div>
+        <div class="stat"><div class="label">State at room temp</div><div class="value" id="modalState"></div></div>
+        <div class="stat"><div class="label">Discovered</div><div class="value" id="modalDiscovered"></div></div>
+        <div class="stat"><div class="label">Group / Period</div><div class="value" id="modalGroup"></div></div>
+      </div>
+      <div class="uses">
+        <h3>🛠️ Where you'll find it</h3>
+        <ul id="modalUses"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="periodic-table.js"></script>
+</body>
+</html>
