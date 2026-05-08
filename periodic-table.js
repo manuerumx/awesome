@@ -1569,10 +1569,10 @@ function buildBodyMode() {
 
   // Fun facts
   factsGrid.innerHTML = '';
-  BODY_FUN_FACTS.forEach(f => {
+  BODY_FUN_FACTS.forEach((f, i) => {
     const card = document.createElement('div');
     card.className = 'body-fact-card';
-    card.innerHTML = `<span class="body-fact-emoji">${f.emoji}</span><p>${f.text}</p>`;
+    card.innerHTML = `<span class="body-fact-emoji">${f.emoji}</span><p>${t('body.fact.' + i) || f.text}</p>`;
     factsGrid.appendChild(card);
   });
 
@@ -1603,7 +1603,7 @@ function showBodyPart(partKey) {
         </div>
       </div>
       <div class="body-detail-elements">
-        <h4>Key Elements</h4>
+        <h4>${t('body.keyElements')}</h4>
         <div class="body-el-list">
           ${data.elements.map(el => {
             const info = EL_BY_SYM[el.s];
@@ -1612,7 +1612,7 @@ function showBodyPart(partKey) {
               <div class="body-el-row" style="background: ${catColor}22;">
                 <div class="body-el-sym" style="background: ${catColor};">${el.s}</div>
                 <div class="body-el-info">
-                  <div class="body-el-name">${info.name}</div>
+                  <div class="body-el-name">${tEl(info, 'name')}</div>
                   <div class="body-el-role">${el.role}</div>
                 </div>
                 <div class="body-el-bar-wrap">
@@ -1675,20 +1675,30 @@ const GLOSSARY = [
   { emoji: "✨", term: "Oxidation", def: "When an element reacts with oxygen. Rusting and burning are both types of oxidation!", example: "When iron rusts, it's slowly combining with oxygen from the air." },
 ];
 
+// Stamp each glossary item with its original index for stable t() key lookup
+GLOSSARY.forEach((item, i) => { item._idx = i; });
+
 const glossaryGrid = document.getElementById('glossaryGrid');
 const glossarySearch = document.getElementById('glossarySearch');
 
 function buildGlossary() {
   glossaryGrid.innerHTML = '';
-  GLOSSARY.sort((a, b) => a.term.localeCompare(b.term, currentLocale())).forEach(item => {
+  GLOSSARY.sort((a, b) => {
+    const ta = t('glossary.' + a._idx + '.term') || a.term;
+    const tb = t('glossary.' + b._idx + '.term') || b.term;
+    return ta.localeCompare(tb, currentLocale());
+  }).forEach(item => {
+    const term    = t('glossary.' + item._idx + '.term')    || item.term;
+    const def     = t('glossary.' + item._idx + '.def')     || item.def;
+    const example = t('glossary.' + item._idx + '.example') || item.example;
     const card = document.createElement('div');
     card.className = 'glossary-card';
-    card.dataset.term = item.term.toLowerCase();
-    card.dataset.def = item.def.toLowerCase();
+    card.dataset.term = term.toLowerCase();
+    card.dataset.def = def.toLowerCase();
     card.innerHTML = `
-      <div class="glossary-term"><span class="glossary-emoji">${item.emoji}</span> ${item.term}</div>
-      <div class="glossary-def">${item.def}</div>
-      ${item.example ? `<div class="glossary-example">Example: ${item.example}</div>` : ''}
+      <div class="glossary-term"><span class="glossary-emoji">${item.emoji}</span> ${term}</div>
+      <div class="glossary-def">${def}</div>
+      ${example ? `<div class="glossary-example">${t('glossary.example', { text: example })}</div>` : ''}
     `;
     glossaryGrid.appendChild(card);
   });
