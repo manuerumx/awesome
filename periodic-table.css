@@ -1483,21 +1483,22 @@ footer a:hover { text-decoration: underline; }
   gap: 0.4rem;
 }
 .lang-switcher button {
-  background: rgba(255,255,255,0.15);
-  border: 2px solid rgba(255,255,255,0.3);
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.75);
   border-radius: 20px;
-  color: #fff;
+  color: rgba(255,255,255,0.9);
   cursor: pointer;
   font-family: var(--font-main);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   padding: 4px 12px;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 .lang-switcher button:hover {
-  background: rgba(255,255,255,0.28);
-  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.2);
+  border-color: #fff;
+  color: #fff;
 }
 .lang-switcher button.active {
   background: #fff;
@@ -1505,12 +1506,13 @@ footer a:hover { text-decoration: underline; }
   color: var(--accent);
 }
 .lang-switcher button.coming-soon {
-  opacity: 0.45;
+  opacity: 0.5;
   cursor: default;
 }
 .lang-switcher button.coming-soon:hover {
-  background: rgba(255,255,255,0.15);
-  border-color: rgba(255,255,255,0.3);
+  background: transparent;
+  border-color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.9);
 }
 
 @media (max-width: 600px) {
