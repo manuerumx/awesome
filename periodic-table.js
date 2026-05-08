@@ -289,6 +289,46 @@ function getDiscoveryEra(el) {
   return DISCOVERY_ERAS.find(e => el.discYear < e.max) || DISCOVERY_ERAS[DISCOVERY_ERAS.length - 1];
 }
 
+// Melting points in °C. null = unknown or no standard melting point (e.g. He never solidifies at normal pressure)
+const MELT_POINTS = {
+  1:-259.1, 2:null,   3:180.5,  4:1287,   5:2076,   6:3550,   7:-210.0, 8:-218.8, 9:-219.7, 10:-248.6,
+  11:97.8,  12:650,   13:660.3, 14:1414,  15:44.2,  16:115.2, 17:-101.5,18:-189.3,19:63.5,  20:842,
+  21:1541,  22:1668,  23:1910,  24:1907,  25:1246,  26:1538,  27:1495,  28:1455,  29:1085,  30:419.5,
+  31:29.8,  32:938.3, 33:817,   34:221,   35:-7.2,  36:-157.4,37:39.3,  38:777,   39:1522,  40:1855,
+  41:2477,  42:2623,  43:2157,  44:2334,  45:1964,  46:1555,  47:961.8, 48:321.1, 49:156.6, 50:231.9,
+  51:630.6, 52:449.5, 53:113.7, 54:-111.8,55:28.5,  56:727,   57:920,   58:798,   59:931,   60:1016,
+  61:1042,  62:1074,  63:822,   64:1313,  65:1356,  66:1412,  67:1474,  68:1529,  69:1545,  70:819,
+  71:1663,  72:2233,  73:3017,  74:3422,  75:3186,  76:3033,  77:2446,  78:1768,  79:1064,  80:-38.8,
+  81:304,   82:327.5, 83:271.3, 84:254,   85:302,   86:-71,   87:27,    88:700,   89:1050,  90:1750,
+  91:1572,  92:1135,  93:644,   94:639.4, 95:1176,  96:1345,  97:986,   98:900,   99:860,   100:1527,
+  101:827,  102:827,  103:1627, 104:null, 105:null, 106:null, 107:null, 108:null, 109:null, 110:null,
+  111:null, 112:null, 113:null, 114:null, 115:null, 116:null, 117:null, 118:null,
+};
+
+function meltToColor(n) {
+  const melt = MELT_POINTS[n];
+  if (melt === null || melt === undefined) return '#9e9e9e';
+  const min = -260, max = 3450;
+  const t = Math.max(0, Math.min(1, (melt - min) / (max - min)));
+  const stops = [
+    [0.00, [30,  70,  180]],
+    [0.10, [80,  140, 220]],
+    [0.22, [70,  200, 195]],
+    [0.40, [255, 235, 80]],
+    [0.60, [255, 145, 30]],
+    [0.80, [220, 45,  30]],
+    [1.00, [140, 0,   20]],
+  ];
+  for (let i = 0; i < stops.length - 1; i++) {
+    const [t0, c0] = stops[i], [t1, c1] = stops[i + 1];
+    if (t >= t0 && t <= t1) {
+      const f = (t - t0) / (t1 - t0);
+      return `rgb(${Math.round(c0[0]+(c1[0]-c0[0])*f)},${Math.round(c0[1]+(c1[1]-c0[1])*f)},${Math.round(c0[2]+(c1[2]-c0[2])*f)})`;
+    }
+  }
+  return 'rgb(140,0,20)';
+}
+
 function massToColor(mass) {
   const num = parseFloat(mass.replace(/[()]/g, ''));
   const t = Math.min(num / 295, 1);
@@ -317,6 +357,8 @@ function applyColorBy(mode) {
       cell.style.background = massToColor(el.mass);
     } else if (mode === 'radioactivity') {
       cell.style.background = RADIOACTIVE_ELEMENTS.has(el.n) ? RADIO_COLORS.radioactive : RADIO_COLORS.stable;
+    } else if (mode === 'melt') {
+      cell.style.background = meltToColor(el.n);
     }
   });
 
@@ -359,6 +401,23 @@ function applyColorBy(mode) {
       item.innerHTML = `<div class="legend-swatch" style="background: ${color}"></div><span>${displayLabel}</span>`;
       legendEl.appendChild(item);
     });
+  } else if (mode === 'melt') {
+    const gradDiv = document.createElement('div');
+    gradDiv.className = 'legend-gradient';
+    const coldLabel = document.createElement('span');
+    coldLabel.style.cssText = 'font-size:0.8rem;font-weight:600;';
+    coldLabel.textContent = 'Ice cold';
+    const bar = document.createElement('div');
+    bar.className = 'legend-gradient-bar';
+    bar.style.background = 'linear-gradient(to right,rgb(30,70,180),rgb(80,140,220),rgb(70,200,195),rgb(255,235,80),rgb(255,145,30),rgb(220,45,30),rgb(140,0,20))';
+    const hotLabel = document.createElement('span');
+    hotLabel.style.cssText = 'font-size:0.8rem;font-weight:600;';
+    hotLabel.textContent = 'Blazing hot';
+    gradDiv.append(coldLabel, bar, hotLabel);
+    const note = document.createElement('div');
+    note.style.cssText = 'font-size:0.75rem;opacity:0.7;margin-top:4px;text-align:center;';
+    note.textContent = 'Gray = melting point unknown · Helium never solidifies at normal pressure';
+    legendEl.append(gradDiv, note);
   }
 
   const legendTitle = legendEl.parentElement.querySelector('h3');
@@ -366,7 +425,7 @@ function applyColorBy(mode) {
     const titles = {
       category: '🎨 Color Guide', state: '🌡️ State of Matter',
       discovery: '📜 Discovery Era', mass: '⚖️ Atomic Mass',
-      radioactivity: '☢️ Radioactivity',
+      radioactivity: '☢️ Radioactivity', melt: '🔥 Melting Point',
     };
     legendTitle.textContent = titles[mode];
   }
@@ -401,6 +460,10 @@ function renderModalContent(el) {
   document.getElementById('modalState').textContent = el.state;
   document.getElementById('modalDiscovered').textContent = el.disc;
   document.getElementById('modalGroup').textContent = `Group ${elementGroup(el)} / Period ${elementPeriod(el)}`;
+  const meltVal = MELT_POINTS[el.n];
+  document.getElementById('modalMelt').textContent = meltVal === null || meltVal === undefined
+    ? (el.n === 2 ? 'Never melts at normal pressure!' : 'Unknown')
+    : `${meltVal} °C`;
 
   const usesEl = document.getElementById('modalUses');
   usesEl.innerHTML = el.uses.map(u => `<li>${u}</li>`).join('');

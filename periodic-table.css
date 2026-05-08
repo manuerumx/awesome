@@ -435,6 +435,7 @@ header p {
 }
 .stat .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; font-weight: 600; margin-bottom: 2px; }
 .stat .value { font-family: 'Space Mono', monospace; font-size: 1.05rem; font-weight: 700; }
+.stat-full { grid-column: 1 / -1; }
 
 .uses {
   background: white;
