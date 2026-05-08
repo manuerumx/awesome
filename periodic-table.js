@@ -88,45 +88,47 @@ const ELEMENTS = [
   {n:84,s:"Po",name:"Polonium",cat:"post-transition",mass:"(209)",x:16,y:6,state:"Solid",disc:"1898",discYear:1898,fact:"Discovered by Marie Curie and named after her home country, Poland!",whatIf:"Polonium is so radioactive that just a tiny dot of it can heat a small room — it's been used to power spacecraft batteries!",where:"Extremely rare in nature. Mostly produced in nuclear reactors.",uses:["Anti-static brushes","Heat sources","Research"]},
   {n:85,s:"At",name:"Astatine",cat:"halogen",mass:"(210)",x:17,y:6,state:"Solid",disc:"1940",discYear:1940,fact:"The rarest naturally-occurring element on Earth! Less than a gram exists.",whatIf:"At any given moment, less than 30 grams of astatine exists in the entire Earth's crust — you'll never see this one in person!",where:"Created in tiny amounts during the radioactive decay of uranium underground.",uses:["Cancer research","Scientific study"]},
   {n:86,s:"Rn",name:"Radon",cat:"noble",mass:"(222)",x:18,y:6,state:"Gas",disc:"1900",discYear:1900,fact:"A radioactive gas that sometimes seeps from the ground into basements!",whatIf:"Many homes have a radon detector in the basement because if it builds up, it can cause lung cancer over many years — silent and invisible!",where:"Forms naturally in soil and rocks containing uranium. Some basements need special ventilation.",uses:["Cancer treatment (historic)","Research"]},
-  {n:87,s:"Fr",name:"Francium",cat:"alkali",mass:"(223)",x:1,y:7,state:"Solid",disc:"1939",discYear:1939,fact:"At any given time, there's less than an ounce of it on Earth!",whatIf:"Francium is so radioactive that even if you had a chunk of it, you'd never see it — it would heat up and vaporize itself in seconds!",where:"Created in tiny amounts when actinium decays underground.",uses:["Scientific research only"]},
+  {n:87,s:"Fr",name:"Francium",cat:"alkali",mass:"(223)",x:1,y:7,state:"Solid",disc:"1939",discYear:1939,fact:"At any given time, there's less than an ounce of it on Earth!",whatIf:"Francium is so radioactive that even if you had a chunk of it, you'd never see it — it would heat up and vaporize itself in seconds!",where:"Created in tiny amounts when actinium decays underground.",uses:["Scientific research only"],researchOnly:true},
   {n:88,s:"Ra",name:"Radium",cat:"alkaline",mass:"(226)",x:2,y:7,state:"Solid",disc:"1898",discYear:1898,fact:"Used to make watch dials glow in the dark — until people realized it was dangerous!",whatIf:"In the 1920s, factory workers painted glow-in-the-dark watch dials with radium and licked their brushes to make a fine point — sadly, many got very sick!",where:"Found in tiny amounts in uranium ores. Discovered by Marie and Pierre Curie.",uses:["Glow paint (historic)","Cancer treatment (historic)"]},
   {n:89,s:"Ac",name:"Actinium",cat:"actinide",mass:"(227)",x:3,y:10,state:"Solid",disc:"1899",discYear:1899,fact:"Glows pale blue in the dark because it's so radioactive!",whatIf:"Actinium-225 is being tested as a 'smart bomb' for cancer — it can target and destroy cancer cells while leaving healthy ones alone!",where:"Found in tiny traces in uranium ores. Mostly made in nuclear reactors.",uses:["Cancer treatment","Neutron sources"]},
   {n:90,s:"Th",name:"Thorium",cat:"actinide",mass:"232.04",x:4,y:10,state:"Solid",disc:"1828",discYear:1828,fact:"Named after Thor, the Norse god of thunder! Could power future reactors.",whatIf:"Thorium reactors could one day provide cleaner nuclear power than uranium — India has tons of it and is leading the research!",where:"More common than uranium! Found in monazite sand in India, Brazil, and the United States.",uses:["Nuclear fuel","Lantern mantles","Lenses"]},
-  {n:91,s:"Pa",name:"Protactinium",cat:"actinide",mass:"231.04",x:5,y:10,state:"Solid",disc:"1913",discYear:1913,fact:"One of the rarest and most expensive natural elements!",whatIf:"Just gathering one gram of protactinium took 12 years and processing 60 tons of uranium ore — definitely not something you can buy at a store!",where:"Found in tiny amounts in uranium ores.",uses:["Scientific research"]},
+  {n:91,s:"Pa",name:"Protactinium",cat:"actinide",mass:"231.04",x:5,y:10,state:"Solid",disc:"1913",discYear:1913,fact:"One of the rarest and most expensive natural elements!",whatIf:"Just gathering one gram of protactinium took 12 years and processing 60 tons of uranium ore — definitely not something you can buy at a store!",where:"Found in tiny amounts in uranium ores.",uses:["Scientific research"],researchOnly:true},
   {n:92,s:"U",name:"Uranium",cat:"actinide",mass:"238.03",x:6,y:10,state:"Solid",disc:"1789",discYear:1789,fact:"Powers nuclear power plants! A tiny amount makes huge electricity.",whatIf:"One uranium fuel pellet the size of your fingertip can produce as much energy as 1 ton of coal or 150 gallons of oil!",where:"Mined in Kazakhstan, Canada, Australia, and Namibia.",uses:["Nuclear power","Submarines","Counterweights"]},
   {n:93,s:"Np",name:"Neptunium",cat:"actinide",mass:"(237)",x:7,y:10,state:"Solid",disc:"1940",discYear:1940,fact:"Named after the planet Neptune! Made in nuclear reactors.",whatIf:"Just like Neptune comes after Uranus in the solar system, neptunium comes right after uranium on the periodic table — perfect naming!",where:"Tiny traces exist naturally in uranium ores. Mostly made in nuclear reactors.",uses:["Neutron detectors","Research"]},
   {n:94,s:"Pu",name:"Plutonium",cat:"actinide",mass:"(244)",x:8,y:10,state:"Solid",disc:"1940",discYear:1940,fact:"Powers spacecraft like the Mars rovers and the Voyager probe in deep space!",whatIf:"Voyager 1 has been flying through space since 1977 powered by plutonium — and it's still sending back data after nearly 50 years!",where:"Doesn't really exist naturally. Made in nuclear reactors from uranium.",uses:["Spacecraft","Nuclear power","Pacemakers (historic)"]},
   {n:95,s:"Am",name:"Americium",cat:"actinide",mass:"(243)",x:9,y:10,state:"Solid",disc:"1944",discYear:1944,fact:"You probably have some in your house — it's in smoke detectors!",whatIf:"Right now, the smoke detector on your ceiling probably has a tiny pellet of americium inside — totally safe, but quietly watching for smoke 24/7!",where:"Made in nuclear reactors. Almost every home in America has a tiny bit in a smoke detector.",uses:["Smoke detectors","Glass measuring","Research"]},
   {n:96,s:"Cm",name:"Curium",cat:"actinide",mass:"(247)",x:10,y:10,state:"Solid",disc:"1944",discYear:1944,fact:"Named after Marie and Pierre Curie! Glows purple in the dark.",whatIf:"Curium powered the instruments on the Mars rovers Spirit, Opportunity, and Curiosity — letting them analyze Martian rocks!",where:"Made only in nuclear reactors. Doesn't exist naturally.",uses:["Pacemakers (research)","Mars rovers","Power sources"]},
-  {n:97,s:"Bk",name:"Berkelium",cat:"actinide",mass:"(247)",x:11,y:10,state:"Solid",disc:"1949",discYear:1949,fact:"Named after Berkeley, California, where it was discovered!",whatIf:"To make element 117 (Tennessine), scientists needed berkelium — and producing just 22 milligrams took 18 months in a special reactor!",where:"Made only in nuclear reactors. About 1 gram has ever been produced.",uses:["Scientific research"]},
+  {n:97,s:"Bk",name:"Berkelium",cat:"actinide",mass:"(247)",x:11,y:10,state:"Solid",disc:"1949",discYear:1949,fact:"Named after Berkeley, California, where it was discovered!",whatIf:"To make element 117 (Tennessine), scientists needed berkelium — and producing just 22 milligrams took 18 months in a special reactor!",where:"Made only in nuclear reactors. About 1 gram has ever been produced.",uses:["Scientific research"],researchOnly:true},
   {n:98,s:"Cf",name:"Californium",cat:"actinide",mass:"(251)",x:12,y:10,state:"Solid",disc:"1950",discYear:1950,fact:"One gram costs millions of dollars! Used to find gold and oil.",whatIf:"Californium-252 shoots out neutrons that can find gold deposits underground or check for cracks in airplane wings!",where:"Made in nuclear reactors at Oak Ridge National Lab in Tennessee.",uses:["Cancer treatment","Metal detection","Research"]},
-  {n:99,s:"Es",name:"Einsteinium",cat:"actinide",mass:"(252)",x:13,y:10,state:"Solid",disc:"1952",discYear:1952,fact:"Named after Albert Einstein! First found in nuclear test debris.",whatIf:"Einsteinium was discovered in the radioactive cloud from the world's first hydrogen bomb test in 1952 — but kept secret for years!",where:"Doesn't exist naturally. Made in tiny amounts in special reactors.",uses:["Scientific research only"]},
-  {n:100,s:"Fm",name:"Fermium",cat:"actinide",mass:"(257)",x:14,y:10,state:"Solid",disc:"1952",discYear:1952,fact:"The 100th element! Named after the famous physicist Enrico Fermi.",whatIf:"Fermium was also discovered in the same hydrogen bomb test debris as einsteinium — that one explosion gave us TWO new elements!",where:"Made in nuclear reactors. Only billionths of a gram have ever been produced.",uses:["Scientific research only"]},
-  {n:101,s:"Md",name:"Mendelevium",cat:"actinide",mass:"(258)",x:15,y:10,state:"Solid",disc:"1955",discYear:1955,fact:"Named after Mendeleev, the guy who invented the periodic table!",whatIf:"Mendeleev created the periodic table in 1869 by predicting elements that didn't even exist yet — and he was right about almost all of them!",where:"Doesn't exist naturally. Made one atom at a time in particle accelerators.",uses:["Scientific research only"]},
-  {n:102,s:"No",name:"Nobelium",cat:"actinide",mass:"(259)",x:16,y:10,state:"Solid",disc:"1958",discYear:1958,fact:"Named after Alfred Nobel, who created the Nobel Prize and dynamite!",whatIf:"Alfred Nobel invented dynamite, made a fortune, then felt bad about it and used his money to create the Nobel Prizes — pretty cool legacy!",where:"Doesn't exist naturally. Made in particle accelerators.",uses:["Scientific research only"]},
-  {n:103,s:"Lr",name:"Lawrencium",cat:"actinide",mass:"(266)",x:17,y:10,state:"Solid",disc:"1961",discYear:1961,fact:"Named after Ernest Lawrence, who invented the cyclotron particle smasher!",whatIf:"The cyclotron Lawrence invented is what we use to MAKE elements like lawrencium — the tool created the element that's named after its inventor!",where:"Doesn't exist naturally. Made in particle accelerators.",uses:["Scientific research only"]},
-  {n:104,s:"Rf",name:"Rutherfordium",cat:"transition",mass:"(267)",x:4,y:7,state:"Solid",disc:"1964",discYear:1964,fact:"Super heavy, super radioactive, and only exists for tiny fractions of a second!",whatIf:"Some atoms of rutherfordium last only seconds before splitting apart — scientists have to study them really, really fast!",where:"Made one atom at a time in particle accelerators in Russia and the United States.",uses:["Scientific research only"]},
-  {n:105,s:"Db",name:"Dubnium",cat:"transition",mass:"(268)",x:5,y:7,state:"Solid",disc:"1968",discYear:1968,fact:"Named after Dubna, Russia, where it was made in a giant atom smasher!",whatIf:"Russian and American scientists fought for decades over who discovered dubnium first — they finally compromised on the name in 1997!",where:"Made in particle accelerators in Dubna, Russia.",uses:["Scientific research only"]},
-  {n:106,s:"Sg",name:"Seaborgium",cat:"transition",mass:"(269)",x:6,y:7,state:"Solid",disc:"1974",discYear:1974,fact:"Named after Glenn Seaborg, who was alive when the element was named after him!",whatIf:"Most elements are named after dead scientists — Seaborg was one of the only people to have an element named after him while still living!",where:"Made in particle accelerators by smashing atoms together at high speeds.",uses:["Scientific research only"]},
-  {n:107,s:"Bh",name:"Bohrium",cat:"transition",mass:"(270)",x:7,y:7,state:"Solid",disc:"1981",discYear:1981,fact:"Named after physicist Niels Bohr, who figured out how atoms are built!",whatIf:"Niels Bohr figured out how electrons orbit atoms way back in 1913 — every atom diagram you'll ever see uses his model!",where:"Made by smashing chromium atoms into bismuth at high speed.",uses:["Scientific research only"]},
-  {n:108,s:"Hs",name:"Hassium",cat:"transition",mass:"(269)",x:8,y:7,state:"Solid",disc:"1984",discYear:1984,fact:"Named after Hesse, the German state where it was first made!",whatIf:"Scientists have only ever made a few hundred atoms of hassium — total — in the entire history of humanity!",where:"Made in particle accelerators in Darmstadt, Germany.",uses:["Scientific research only"]},
-  {n:109,s:"Mt",name:"Meitnerium",cat:"transition",mass:"(278)",x:9,y:7,state:"Solid",disc:"1982",discYear:1982,fact:"Named after Lise Meitner, who helped discover nuclear fission!",whatIf:"Lise Meitner discovered nuclear fission but didn't get the Nobel Prize for it — her partner did! She finally got an element named after her instead.",where:"Made in particle accelerators in Germany.",uses:["Scientific research only"]},
-  {n:110,s:"Ds",name:"Darmstadtium",cat:"transition",mass:"(281)",x:10,y:7,state:"Solid",disc:"1994",discYear:1994,fact:"Made by smashing nickel into lead inside a particle accelerator!",whatIf:"To make darmstadtium, scientists fired nickel atoms at lead atoms a billion billion times — and only got one new atom for their trouble!",where:"Made at the GSI lab in Darmstadt, Germany.",uses:["Scientific research only"]},
-  {n:111,s:"Rg",name:"Roentgenium",cat:"transition",mass:"(282)",x:11,y:7,state:"Solid",disc:"1994",discYear:1994,fact:"Named after Wilhelm Röntgen, who discovered X-rays!",whatIf:"Röntgen accidentally discovered X-rays in 1895 while playing with a tube — the first X-ray photo he took was of his wife's hand showing her bones and ring!",where:"Made in particle accelerators in Germany.",uses:["Scientific research only"]},
-  {n:112,s:"Cn",name:"Copernicium",cat:"transition",mass:"(285)",x:12,y:7,state:"Solid",disc:"1996",discYear:1996,fact:"Named after astronomer Copernicus, who said Earth orbits the Sun!",whatIf:"In Copernicus's time, people thought the Sun went around Earth — he was so worried about getting in trouble that he waited until he was dying to publish his theory!",where:"Made in particle accelerators by smashing zinc into lead.",uses:["Scientific research only"]},
-  {n:113,s:"Nh",name:"Nihonium",cat:"post-transition",mass:"(286)",x:13,y:7,state:"Solid",disc:"2003",discYear:2003,fact:"The first element discovered in Asia! 'Nihon' means Japan in Japanese.",whatIf:"It took Japanese scientists 9 years and they only made 3 atoms of nihonium total — but it was enough to officially get naming rights!",where:"Made at the RIKEN lab in Japan.",uses:["Scientific research only"]},
-  {n:114,s:"Fl",name:"Flerovium",cat:"post-transition",mass:"(289)",x:14,y:7,state:"Solid",disc:"1998",discYear:1998,fact:"Named after a Russian scientist who studied super-heavy atoms!",whatIf:"Flerovium is one of the most stable super-heavy elements — its atoms can last for several seconds, which is forever in this part of the periodic table!",where:"Made in Dubna, Russia, by smashing calcium into plutonium.",uses:["Scientific research only"]},
-  {n:115,s:"Mc",name:"Moscovium",cat:"post-transition",mass:"(290)",x:15,y:7,state:"Solid",disc:"2003",discYear:2003,fact:"Named after Moscow, Russia, where it was created!",whatIf:"There's a wild conspiracy theory that aliens use moscovium for spaceship fuel — there's zero evidence for it, but it's a fun sci-fi idea!",where:"Made in Dubna, Russia.",uses:["Scientific research only"]},
-  {n:116,s:"Lv",name:"Livermorium",cat:"post-transition",mass:"(293)",x:16,y:7,state:"Solid",disc:"2000",discYear:2000,fact:"Named after the Lawrence Livermore Lab in California!",whatIf:"Livermorium atoms exist for less than a millisecond before decaying — scientists basically blink and miss them!",where:"Made by Russian and American scientists working together in Dubna.",uses:["Scientific research only"]},
-  {n:117,s:"Ts",name:"Tennessine",cat:"halogen",mass:"(294)",x:17,y:7,state:"Solid",disc:"2010",discYear:2010,fact:"Named after Tennessee! One of the newest elements ever made.",whatIf:"To make tennessine, scientists in Russia needed berkelium from Tennessee — they had to ship the precious material 7,000 miles to make a brand new element!",where:"Made by smashing calcium into berkelium at the lab in Dubna, Russia.",uses:["Scientific research only"]},
-  {n:118,s:"Og",name:"Oganesson",cat:"noble",mass:"(294)",x:18,y:7,state:"Solid",disc:"2002",discYear:2002,fact:"The heaviest element known! Named after a still-living scientist, Yuri Oganessian.",whatIf:"Even though it's in the noble gas column, oganesson might actually be a SOLID at room temperature — but it decays so fast nobody can really test it!",where:"Made in Dubna, Russia. Only a handful of atoms have ever existed.",uses:["Scientific research only"]},
+  {n:99,s:"Es",name:"Einsteinium",cat:"actinide",mass:"(252)",x:13,y:10,state:"Solid",disc:"1952",discYear:1952,fact:"Named after Albert Einstein! First found in nuclear test debris.",whatIf:"Einsteinium was discovered in the radioactive cloud from the world's first hydrogen bomb test in 1952 — but kept secret for years!",where:"Doesn't exist naturally. Made in tiny amounts in special reactors.",uses:["Scientific research only"],researchOnly:true},
+  {n:100,s:"Fm",name:"Fermium",cat:"actinide",mass:"(257)",x:14,y:10,state:"Solid",disc:"1952",discYear:1952,fact:"The 100th element! Named after the famous physicist Enrico Fermi.",whatIf:"Fermium was also discovered in the same hydrogen bomb test debris as einsteinium — that one explosion gave us TWO new elements!",where:"Made in nuclear reactors. Only billionths of a gram have ever been produced.",uses:["Scientific research only"],researchOnly:true},
+  {n:101,s:"Md",name:"Mendelevium",cat:"actinide",mass:"(258)",x:15,y:10,state:"Solid",disc:"1955",discYear:1955,fact:"Named after Mendeleev, the guy who invented the periodic table!",whatIf:"Mendeleev created the periodic table in 1869 by predicting elements that didn't even exist yet — and he was right about almost all of them!",where:"Doesn't exist naturally. Made one atom at a time in particle accelerators.",uses:["Scientific research only"],researchOnly:true},
+  {n:102,s:"No",name:"Nobelium",cat:"actinide",mass:"(259)",x:16,y:10,state:"Solid",disc:"1958",discYear:1958,fact:"Named after Alfred Nobel, who created the Nobel Prize and dynamite!",whatIf:"Alfred Nobel invented dynamite, made a fortune, then felt bad about it and used his money to create the Nobel Prizes — pretty cool legacy!",where:"Doesn't exist naturally. Made in particle accelerators.",uses:["Scientific research only"],researchOnly:true},
+  {n:103,s:"Lr",name:"Lawrencium",cat:"actinide",mass:"(266)",x:17,y:10,state:"Solid",disc:"1961",discYear:1961,fact:"Named after Ernest Lawrence, who invented the cyclotron particle smasher!",whatIf:"The cyclotron Lawrence invented is what we use to MAKE elements like lawrencium — the tool created the element that's named after its inventor!",where:"Doesn't exist naturally. Made in particle accelerators.",uses:["Scientific research only"],researchOnly:true},
+  {n:104,s:"Rf",name:"Rutherfordium",cat:"transition",mass:"(267)",x:4,y:7,state:"Solid",disc:"1964",discYear:1964,fact:"Super heavy, super radioactive, and only exists for tiny fractions of a second!",whatIf:"Some atoms of rutherfordium last only seconds before splitting apart — scientists have to study them really, really fast!",where:"Made one atom at a time in particle accelerators in Russia and the United States.",uses:["Scientific research only"],researchOnly:true},
+  {n:105,s:"Db",name:"Dubnium",cat:"transition",mass:"(268)",x:5,y:7,state:"Solid",disc:"1968",discYear:1968,fact:"Named after Dubna, Russia, where it was made in a giant atom smasher!",whatIf:"Russian and American scientists fought for decades over who discovered dubnium first — they finally compromised on the name in 1997!",where:"Made in particle accelerators in Dubna, Russia.",uses:["Scientific research only"],researchOnly:true},
+  {n:106,s:"Sg",name:"Seaborgium",cat:"transition",mass:"(269)",x:6,y:7,state:"Solid",disc:"1974",discYear:1974,fact:"Named after Glenn Seaborg, who was alive when the element was named after him!",whatIf:"Most elements are named after dead scientists — Seaborg was one of the only people to have an element named after him while still living!",where:"Made in particle accelerators by smashing atoms together at high speeds.",uses:["Scientific research only"],researchOnly:true},
+  {n:107,s:"Bh",name:"Bohrium",cat:"transition",mass:"(270)",x:7,y:7,state:"Solid",disc:"1981",discYear:1981,fact:"Named after physicist Niels Bohr, who figured out how atoms are built!",whatIf:"Niels Bohr figured out how electrons orbit atoms way back in 1913 — every atom diagram you'll ever see uses his model!",where:"Made by smashing chromium atoms into bismuth at high speed.",uses:["Scientific research only"],researchOnly:true},
+  {n:108,s:"Hs",name:"Hassium",cat:"transition",mass:"(269)",x:8,y:7,state:"Solid",disc:"1984",discYear:1984,fact:"Named after Hesse, the German state where it was first made!",whatIf:"Scientists have only ever made a few hundred atoms of hassium — total — in the entire history of humanity!",where:"Made in particle accelerators in Darmstadt, Germany.",uses:["Scientific research only"],researchOnly:true},
+  {n:109,s:"Mt",name:"Meitnerium",cat:"transition",mass:"(278)",x:9,y:7,state:"Solid",disc:"1982",discYear:1982,fact:"Named after Lise Meitner, who helped discover nuclear fission!",whatIf:"Lise Meitner discovered nuclear fission but didn't get the Nobel Prize for it — her partner did! She finally got an element named after her instead.",where:"Made in particle accelerators in Germany.",uses:["Scientific research only"],researchOnly:true},
+  {n:110,s:"Ds",name:"Darmstadtium",cat:"transition",mass:"(281)",x:10,y:7,state:"Solid",disc:"1994",discYear:1994,fact:"Made by smashing nickel into lead inside a particle accelerator!",whatIf:"To make darmstadtium, scientists fired nickel atoms at lead atoms a billion billion times — and only got one new atom for their trouble!",where:"Made at the GSI lab in Darmstadt, Germany.",uses:["Scientific research only"],researchOnly:true},
+  {n:111,s:"Rg",name:"Roentgenium",cat:"transition",mass:"(282)",x:11,y:7,state:"Solid",disc:"1994",discYear:1994,fact:"Named after Wilhelm Röntgen, who discovered X-rays!",whatIf:"Röntgen accidentally discovered X-rays in 1895 while playing with a tube — the first X-ray photo he took was of his wife's hand showing her bones and ring!",where:"Made in particle accelerators in Germany.",uses:["Scientific research only"],researchOnly:true},
+  {n:112,s:"Cn",name:"Copernicium",cat:"transition",mass:"(285)",x:12,y:7,state:"Solid",disc:"1996",discYear:1996,fact:"Named after astronomer Copernicus, who said Earth orbits the Sun!",whatIf:"In Copernicus's time, people thought the Sun went around Earth — he was so worried about getting in trouble that he waited until he was dying to publish his theory!",where:"Made in particle accelerators by smashing zinc into lead.",uses:["Scientific research only"],researchOnly:true},
+  {n:113,s:"Nh",name:"Nihonium",cat:"post-transition",mass:"(286)",x:13,y:7,state:"Solid",disc:"2003",discYear:2003,fact:"The first element discovered in Asia! 'Nihon' means Japan in Japanese.",whatIf:"It took Japanese scientists 9 years and they only made 3 atoms of nihonium total — but it was enough to officially get naming rights!",where:"Made at the RIKEN lab in Japan.",uses:["Scientific research only"],researchOnly:true},
+  {n:114,s:"Fl",name:"Flerovium",cat:"post-transition",mass:"(289)",x:14,y:7,state:"Solid",disc:"1998",discYear:1998,fact:"Named after a Russian scientist who studied super-heavy atoms!",whatIf:"Flerovium is one of the most stable super-heavy elements — its atoms can last for several seconds, which is forever in this part of the periodic table!",where:"Made in Dubna, Russia, by smashing calcium into plutonium.",uses:["Scientific research only"],researchOnly:true},
+  {n:115,s:"Mc",name:"Moscovium",cat:"post-transition",mass:"(290)",x:15,y:7,state:"Solid",disc:"2003",discYear:2003,fact:"Named after Moscow, Russia, where it was created!",whatIf:"There's a wild conspiracy theory that aliens use moscovium for spaceship fuel — there's zero evidence for it, but it's a fun sci-fi idea!",where:"Made in Dubna, Russia.",uses:["Scientific research only"],researchOnly:true},
+  {n:116,s:"Lv",name:"Livermorium",cat:"post-transition",mass:"(293)",x:16,y:7,state:"Solid",disc:"2000",discYear:2000,fact:"Named after the Lawrence Livermore Lab in California!",whatIf:"Livermorium atoms exist for less than a millisecond before decaying — scientists basically blink and miss them!",where:"Made by Russian and American scientists working together in Dubna.",uses:["Scientific research only"],researchOnly:true},
+  {n:117,s:"Ts",name:"Tennessine",cat:"halogen",mass:"(294)",x:17,y:7,state:"Solid",disc:"2010",discYear:2010,fact:"Named after Tennessee! One of the newest elements ever made.",whatIf:"To make tennessine, scientists in Russia needed berkelium from Tennessee — they had to ship the precious material 7,000 miles to make a brand new element!",where:"Made by smashing calcium into berkelium at the lab in Dubna, Russia.",uses:["Scientific research only"],researchOnly:true},
+  {n:118,s:"Og",name:"Oganesson",cat:"noble",mass:"(294)",x:18,y:7,state:"Solid",disc:"2002",discYear:2002,fact:"The heaviest element known! Named after a still-living scientist, Yuri Oganessian.",whatIf:"Even though it's in the noble gas column, oganesson might actually be a SOLID at room temperature — but it decays so fast nobody can really test it!",where:"Made in Dubna, Russia. Only a handful of atoms have ever existed.",uses:["Scientific research only"],researchOnly:true},
 ];
 
 const CATEGORIES = {
-  alkali: "Alkali Metal", alkaline: "Alkaline Earth Metal", transition: "Transition Metal",
-  "post-transition": "Post-Transition Metal", metalloid: "Metalloid", nonmetal: "Nonmetal",
-  halogen: "Halogen", noble: "Noble Gas", lanthanide: "Lanthanide", actinide: "Actinide",
+  alkali: 'alkali', alkaline: 'alkaline', transition: 'transition',
+  'post-transition': 'post-transition', metalloid: 'metalloid', nonmetal: 'nonmetal',
+  halogen: 'halogen', noble: 'noble', lanthanide: 'lanthanide', actinide: 'actinide',
 };
+function catLabel(cat) { return t('category.' + cat); }
+function catLabelLower(cat) { return t('category.' + cat + '.lower'); }
 const CAT_COLORS = {
   alkali: "var(--c-alkali)", alkaline: "var(--c-alkaline)", transition: "var(--c-transition)",
   "post-transition": "var(--c-postt)", metalloid: "var(--c-metalloid)", nonmetal: "var(--c-nonmetal)",
@@ -186,7 +188,7 @@ function buildTable(rootId, onClickFn, prefix) {
     cell.innerHTML = `
       <div class="num">${el.n}</div>
       <div class="sym">${el.s}</div>
-      <div class="name">${el.name}</div>
+      <div class="name">${tEl(el, 'name')}</div>
       <div class="mass">${el.mass}</div>
     `;
     cell.addEventListener('click', () => onClickFn(el, cell));
@@ -212,10 +214,10 @@ const timelineCells = buildTable('table-timeline', (el) => openModal(el), 't-');
 // LEGEND
 // ============================================
 const legendEl = document.getElementById('legend');
-Object.entries(CATEGORIES).forEach(([key, label]) => {
+Object.entries(CATEGORIES).forEach(([key]) => {
   const item = document.createElement('div');
   item.className = 'legend-item';
-  item.innerHTML = `<div class="legend-swatch" style="background: ${CAT_COLORS[key]}"></div><span>${label}</span>`;
+  item.innerHTML = `<div class="legend-swatch" style="background: ${CAT_COLORS[key]}"></div><span>${catLabel(key)}</span>`;
   legendEl.appendChild(item);
 });
 
@@ -276,12 +278,13 @@ const colorByPills = document.querySelectorAll('.color-pill');
 const RADIOACTIVE_ELEMENTS = new Set([43,61,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118]);
 
 const STATE_COLORS = { Solid: '#ffa45e', Liquid: '#6cb4ff', Gas: '#b4d44e' };
+function stateLabel(state) { return t('state.' + state); }
 const DISCOVERY_ERAS = [
-  { label: 'Ancient',    max: 1700, color: '#c285ff' },
-  { label: '1700s',      max: 1800, color: '#5fc9c3' },
-  { label: '1800s',      max: 1900, color: '#ffd23f' },
-  { label: '1900s',      max: 2000, color: '#ff6b9d' },
-  { label: '2000s+',     max: 9999, color: '#6cb4ff' },
+  { key: 'era.ancient', max: 1700, color: '#c285ff' },
+  { key: 'era.1700s',   max: 1800, color: '#5fc9c3' },
+  { key: 'era.1800s',   max: 1900, color: '#ffd23f' },
+  { key: 'era.1900s',   max: 2000, color: '#ff6b9d' },
+  { key: 'era.2000s+',  max: 9999, color: '#6cb4ff' },
 ];
 const RADIO_COLORS = { stable: '#b4d44e', radioactive: '#ff5b6e' };
 
@@ -365,39 +368,39 @@ function applyColorBy(mode) {
   legendEl.innerHTML = '';
   if (mode === 'category') {
     legendEl.querySelector('h3')?.remove();
-    Object.entries(CATEGORIES).forEach(([key, label]) => {
+    Object.entries(CATEGORIES).forEach(([key]) => {
       const item = document.createElement('div');
       item.className = 'legend-item';
-      item.innerHTML = `<div class="legend-swatch" style="background: ${CAT_COLORS[key]}"></div><span>${label}</span>`;
+      item.innerHTML = `<div class="legend-swatch" style="background: ${CAT_COLORS[key]}"></div><span>${catLabel(key)}</span>`;
       legendEl.appendChild(item);
     });
   } else if (mode === 'state') {
-    Object.entries(STATE_COLORS).forEach(([label, color]) => {
+    Object.entries(STATE_COLORS).forEach(([code, color]) => {
       const item = document.createElement('div');
       item.className = 'legend-item';
-      item.innerHTML = `<div class="legend-swatch" style="background: ${color}"></div><span>${label}</span>`;
+      item.innerHTML = `<div class="legend-swatch" style="background: ${color}"></div><span>${stateLabel(code)}</span>`;
       legendEl.appendChild(item);
     });
   } else if (mode === 'discovery') {
     DISCOVERY_ERAS.forEach(era => {
       const item = document.createElement('div');
       item.className = 'legend-item';
-      item.innerHTML = `<div class="legend-swatch" style="background: ${era.color}"></div><span>${era.label}</span>`;
+      item.innerHTML = `<div class="legend-swatch" style="background: ${era.color}"></div><span>${t(era.key)}</span>`;
       legendEl.appendChild(item);
     });
   } else if (mode === 'mass') {
     legendEl.innerHTML = `
       <div class="legend-gradient">
-        <span style="font-size:0.8rem;font-weight:600;">Light</span>
+        <span style="font-size:0.8rem;font-weight:600;">${t('legend.label.light')}</span>
         <div class="legend-gradient-bar" style="background: linear-gradient(to right, rgb(108,180,255), rgb(200,130,180), rgb(255,91,110));"></div>
-        <span style="font-size:0.8rem;font-weight:600;">Heavy</span>
+        <span style="font-size:0.8rem;font-weight:600;">${t('legend.label.heavy')}</span>
       </div>
     `;
   } else if (mode === 'radioactivity') {
     Object.entries(RADIO_COLORS).forEach(([label, color]) => {
       const item = document.createElement('div');
       item.className = 'legend-item';
-      const displayLabel = label === 'stable' ? 'Stable' : 'Radioactive ☢️';
+      const displayLabel = label === 'stable' ? t('legend.label.stable') : t('legend.label.radioactive');
       item.innerHTML = `<div class="legend-swatch" style="background: ${color}"></div><span>${displayLabel}</span>`;
       legendEl.appendChild(item);
     });
@@ -406,28 +409,23 @@ function applyColorBy(mode) {
     gradDiv.className = 'legend-gradient';
     const coldLabel = document.createElement('span');
     coldLabel.style.cssText = 'font-size:0.8rem;font-weight:600;';
-    coldLabel.textContent = 'Ice cold';
+    coldLabel.textContent = t('legend.label.iceCold');
     const bar = document.createElement('div');
     bar.className = 'legend-gradient-bar';
     bar.style.background = 'linear-gradient(to right,rgb(30,70,180),rgb(80,140,220),rgb(70,200,195),rgb(255,235,80),rgb(255,145,30),rgb(220,45,30),rgb(140,0,20))';
     const hotLabel = document.createElement('span');
     hotLabel.style.cssText = 'font-size:0.8rem;font-weight:600;';
-    hotLabel.textContent = 'Blazing hot';
+    hotLabel.textContent = t('legend.label.blazingHot');
     gradDiv.append(coldLabel, bar, hotLabel);
     const note = document.createElement('div');
     note.style.cssText = 'font-size:0.75rem;opacity:0.7;margin-top:4px;text-align:center;';
-    note.textContent = 'Gray = melting point unknown · Helium never solidifies at normal pressure';
+    note.textContent = t('legend.label.meltUnknown');
     legendEl.append(gradDiv, note);
   }
 
   const legendTitle = legendEl.parentElement.querySelector('h3');
   if (legendTitle) {
-    const titles = {
-      category: '🎨 Color Guide', state: '🌡️ State of Matter',
-      discovery: '📜 Discovery Era', mass: '⚖️ Atomic Mass',
-      radioactivity: '☢️ Radioactivity', melt: '🔥 Melting Point',
-    };
-    legendTitle.textContent = titles[mode];
+    legendTitle.textContent = t('legend.title.' + mode);
   }
 }
 
@@ -451,25 +449,26 @@ function renderModalContent(el) {
   document.getElementById('modalSymbol').style.background = CAT_COLORS[el.cat];
   document.getElementById('modalNum').textContent = el.n;
   document.getElementById('modalSym').textContent = el.s;
-  document.getElementById('modalName').textContent = el.name;
-  document.getElementById('modalCategory').textContent = CATEGORIES[el.cat];
-  document.getElementById('modalFact').textContent = el.fact;
-  document.getElementById('modalWhatIf').textContent = el.whatIf;
-  document.getElementById('modalWhere').textContent = el.where;
-  document.getElementById('modalMass').textContent = el.mass + " u";
-  document.getElementById('modalState').textContent = el.state;
-  document.getElementById('modalDiscovered').textContent = el.disc;
-  document.getElementById('modalGroup').textContent = `Group ${elementGroup(el)} / Period ${elementPeriod(el)}`;
+  document.getElementById('modalName').textContent = tEl(el, 'name');
+  document.getElementById('modalCategory').textContent = catLabel(el.cat);
+  document.getElementById('modalFact').textContent = tEl(el, 'fact');
+  document.getElementById('modalWhatIf').textContent = tEl(el, 'whatIf');
+  document.getElementById('modalWhere').textContent = tEl(el, 'where');
+  document.getElementById('modalMass').textContent = el.mass + t('modal.unit.mass');
+  document.getElementById('modalState').textContent = stateLabel(el.state);
+  document.getElementById('modalDiscovered').textContent = tEl(el, 'disc');
+  document.getElementById('modalGroup').textContent = t('modal.groupPeriod', { group: elementGroup(el), period: elementPeriod(el) });
   const meltVal = MELT_POINTS[el.n];
   document.getElementById('modalMelt').textContent = meltVal === null || meltVal === undefined
-    ? (el.n === 2 ? 'Never melts at normal pressure!' : 'Unknown')
-    : `${meltVal} °C`;
+    ? (el.n === 2 ? t('modal.heliumNeverMelts') : t('modal.meltUnknown'))
+    : meltVal + t('modal.unit.celsius');
 
   const usesEl = document.getElementById('modalUses');
-  usesEl.innerHTML = el.uses.map(u => `<li>${u}</li>`).join('');
+  usesEl.innerHTML = tEl(el, 'uses').map(u => `<li>${u}</li>`).join('');
 }
 
 function openModal(el) {
+  window._modalCurrentEl = el;
   renderModalContent(el);
   drawAtom(el);
   modalOverlay.classList.add('open');
@@ -550,7 +549,7 @@ function drawAtom(el) {
       x: 270, y: 195,
       'font-family': 'Space Mono', 'font-size': 9, fill: '#ffd23f', 'font-weight': 700, 'text-anchor': 'end',
     });
-    more.textContent = `+${shells.length - visibleShells.length} more shell(s)`;
+    more.textContent = t('atom.moreShells', { count: shells.length - visibleShells.length });
     svg.appendChild(more);
   }
 
@@ -558,7 +557,7 @@ function drawAtom(el) {
     x: 10, y: 195,
     'font-family': 'Space Mono', 'font-size': 9, fill: '#ffd23f', 'font-weight': 700,
   });
-  config.textContent = `Shells: ${shells.join('-')}`;
+  config.textContent = t('atom.shells', { shells: shells.join('-') });
   svg.appendChild(config);
 }
 
@@ -615,14 +614,14 @@ function renderCompareCard(el) {
   return `
     <div class="compare-card">
       <div class="big-sym" style="background: ${CAT_COLORS[el.cat]}">${el.s}</div>
-      <h3>${el.name}</h3>
-      <div class="row"><span class="k">Atomic #</span><span class="v">${el.n}</span></div>
-      <div class="row"><span class="k">Atomic Mass</span><span class="v">${el.mass}</span></div>
-      <div class="row"><span class="k">State</span><span class="v">${el.state}</span></div>
-      <div class="row"><span class="k">Discovered</span><span class="v">${el.disc}</span></div>
-      <div class="row"><span class="k">Category</span><span class="v" style="font-size: 0.78rem;">${CATEGORIES[el.cat]}</span></div>
-      <div class="row"><span class="k">Group</span><span class="v">${elementGroup(el)}</span></div>
-      <div class="row"><span class="k">Period</span><span class="v">${elementPeriod(el)}</span></div>
+      <h3>${tEl(el, 'name')}</h3>
+      <div class="row"><span class="k">${t('compare.atomicNum')}</span><span class="v">${el.n}</span></div>
+      <div class="row"><span class="k">${t('compare.atomicMass')}</span><span class="v">${el.mass}</span></div>
+      <div class="row"><span class="k">${t('compare.state')}</span><span class="v">${stateLabel(el.state)}</span></div>
+      <div class="row"><span class="k">${t('compare.discovered')}</span><span class="v">${tEl(el, 'disc')}</span></div>
+      <div class="row"><span class="k">${t('compare.category')}</span><span class="v" style="font-size: 0.78rem;">${catLabel(el.cat)}</span></div>
+      <div class="row"><span class="k">${t('compare.group')}</span><span class="v">${elementGroup(el)}</span></div>
+      <div class="row"><span class="k">${t('compare.period')}</span><span class="v">${elementPeriod(el)}</span></div>
     </div>
   `;
 }
@@ -646,7 +645,7 @@ const tlInfo = document.getElementById('tlInfo');
 
 function applyTimeline() {
   const year = parseInt(tlSlider.value);
-  tlYear.textContent = year < 0 ? `${Math.abs(year)} BC` : year;
+  tlYear.textContent = year < 0 ? t('timeline.bc', { year: Math.abs(year) }) : year;
 
   let visibleCount = 0;
   ELEMENTS.forEach(el => {
@@ -662,9 +661,9 @@ function applyTimeline() {
   const justDiscovered = ELEMENTS.filter(e => e.discYear === year);
   if (justDiscovered.length > 0) {
     const names = justDiscovered.map(e => e.name).join(', ');
-    tlInfo.innerHTML = `<strong>${visibleCount}/118</strong> elements discovered. <br>📌 New in ${year}: <strong>${names}</strong>`;
+    tlInfo.innerHTML = t('timeline.discoveredAndNew', { count: visibleCount, year, names });
   } else {
-    tlInfo.innerHTML = `<strong>${visibleCount}/118</strong> elements discovered by this year.`;
+    tlInfo.innerHTML = t('timeline.discoveredByYear', { count: visibleCount });
   }
 }
 tlSlider.addEventListener('input', applyTimeline);
@@ -691,29 +690,29 @@ const QUIZ_TYPES = [
     const correct = pickRandom(ELEMENTS);
     const wrongs = pickWrongs(ELEMENTS, correct, 3);
     return {
-      question: `Which element has the symbol <strong>${correct.s}</strong>?`,
-      options: shuffle([correct, ...wrongs]).map(o => ({ label: o.name, sym: o.s, isCorrect: o.n === correct.n, el: o })),
-      explanation: `${correct.s} is the symbol for ${correct.name}.`
+      question: t('quiz.q.symbolLookup', { symbol: correct.s }),
+      options: shuffle([correct, ...wrongs]).map(o => ({ label: tEl(o, 'name'), sym: o.s, isCorrect: o.n === correct.n, el: o })),
+      explanation: t('quiz.exp.symbolLookup', { symbol: correct.s, name: tEl(correct, 'name') })
     };
   },
   () => {
     const correct = pickRandom(ELEMENTS);
     const wrongs = pickWrongs(ELEMENTS, correct, 3);
     return {
-      question: `What is the symbol for <strong>${correct.name}</strong>?`,
+      question: t('quiz.q.nameLookup', { name: tEl(correct, 'name') }),
       options: shuffle([correct, ...wrongs]).map(o => ({ label: o.s, sym: o.s, isCorrect: o.n === correct.n, el: o })),
-      explanation: `The symbol for ${correct.name} is ${correct.s}.`
+      explanation: t('quiz.exp.nameLookup', { name: tEl(correct, 'name'), symbol: correct.s })
     };
   },
   () => {
-    const candidates = ELEMENTS.filter(e => e.uses && e.uses.length > 0 && !e.uses[0].includes('research only'));
+    const candidates = ELEMENTS.filter(e => e.uses && e.uses.length > 0 && !e.researchOnly);
     const correct = pickRandom(candidates);
     const useText = pickRandom(correct.uses);
     const wrongs = pickWrongs(candidates, correct, 3);
     return {
-      question: `Which element is found in <strong>${useText.toLowerCase()}</strong>?`,
-      options: shuffle([correct, ...wrongs]).map(o => ({ label: o.name, sym: o.s, isCorrect: o.n === correct.n, el: o })),
-      explanation: `${correct.name} (${correct.s}) is used in ${useText.toLowerCase()}.`
+      question: t('quiz.q.useLookup', { use: useText }),
+      options: shuffle([correct, ...wrongs]).map(o => ({ label: tEl(o, 'name'), sym: o.s, isCorrect: o.n === correct.n, el: o })),
+      explanation: t('quiz.exp.useLookup', { name: tEl(correct, 'name'), symbol: correct.s, use: useText })
     };
   },
   () => {
@@ -721,18 +720,18 @@ const QUIZ_TYPES = [
     const wrongs = ELEMENTS.filter(e => e.cat !== correct.cat);
     const wrongPicks = pickWrongs(wrongs, correct, 3);
     return {
-      question: `Which of these is a <strong>${CATEGORIES[correct.cat]}</strong>?`,
-      options: shuffle([correct, ...wrongPicks]).map(o => ({ label: o.name, sym: o.s, isCorrect: o.n === correct.n, el: o })),
-      explanation: `${correct.name} is a ${CATEGORIES[correct.cat].toLowerCase()}.`
+      question: t('quiz.q.categoryLookup', { category: catLabel(correct.cat) }),
+      options: shuffle([correct, ...wrongPicks]).map(o => ({ label: tEl(o, 'name'), sym: o.s, isCorrect: o.n === correct.n, el: o })),
+      explanation: t('quiz.exp.categoryLookup', { name: tEl(correct, 'name'), categoryLower: catLabelLower(correct.cat) })
     };
   },
   () => {
     const correct = pickRandom(ELEMENTS.filter(e => e.n <= 30));
     const wrongs = pickWrongs(ELEMENTS, correct, 3);
     return {
-      question: `Which element has atomic number <strong>${correct.n}</strong>?`,
-      options: shuffle([correct, ...wrongs]).map(o => ({ label: o.name, sym: o.s, isCorrect: o.n === correct.n, el: o })),
-      explanation: `Atomic number ${correct.n} is ${correct.name} (${correct.s}).`
+      question: t('quiz.q.numberLookup', { number: correct.n }),
+      options: shuffle([correct, ...wrongs]).map(o => ({ label: tEl(o, 'name'), sym: o.s, isCorrect: o.n === correct.n, el: o })),
+      explanation: t('quiz.exp.numberLookup', { number: correct.n, name: tEl(correct, 'name'), symbol: correct.s })
     };
   },
 ];
@@ -774,7 +773,7 @@ function answerQuestion(btn, opt) {
     qStreak++;
     if (qStreak > qBest) qBest = qStreak;
     qFeedbackEl.classList.add('show', 'correct');
-    qFeedbackEl.innerHTML = `🎉 <strong>Correct!</strong> ${qCurrentAnswer.explanation}`;
+    qFeedbackEl.innerHTML = t('quiz.correct', { explanation: qCurrentAnswer.explanation });
   } else {
     btn.classList.add('wrong');
     Array.from(qOptionsEl.children).forEach(b => {
@@ -784,7 +783,7 @@ function answerQuestion(btn, opt) {
     });
     qStreak = 0;
     qFeedbackEl.classList.add('show', 'wrong');
-    qFeedbackEl.innerHTML = `😅 <strong>Not quite!</strong> ${qCurrentAnswer.explanation}`;
+    qFeedbackEl.innerHTML = t('quiz.notQuite', { explanation: qCurrentAnswer.explanation });
   }
   qNextBtn.style.display = 'inline-block';
   updateQuizStats();
@@ -1107,9 +1106,9 @@ function showDifficultyPicker() {
     <div class="race-custom-config" id="raceCustomConfig" style="display:none;">
       <h3>Custom Race Settings</h3>
       <div class="race-custom-cats" id="raceCustomCatsEl">
-        ${Object.entries(CATEGORIES).map(([k,v]) =>
+        ${Object.entries(CATEGORIES).map(([k]) =>
           `<label class="race-cat-check${raceCustomCats.has(k) ? '' : ' unchecked'}" style="background:${CAT_COLORS[k]}">
-            <input type="checkbox" value="${k}" ${raceCustomCats.has(k) ? 'checked' : ''}/> ${v}
+            <input type="checkbox" value="${k}" ${raceCustomCats.has(k) ? 'checked' : ''}/> ${catLabel(k)}
           </label>`
         ).join('')}
       </div>
@@ -1681,7 +1680,7 @@ const glossarySearch = document.getElementById('glossarySearch');
 
 function buildGlossary() {
   glossaryGrid.innerHTML = '';
-  GLOSSARY.sort((a, b) => a.term.localeCompare(b.term)).forEach(item => {
+  GLOSSARY.sort((a, b) => a.term.localeCompare(b.term, currentLocale())).forEach(item => {
     const card = document.createElement('div');
     card.className = 'glossary-card';
     card.dataset.term = item.term.toLowerCase();
@@ -1704,3 +1703,26 @@ glossarySearch.addEventListener('input', () => {
 });
 
 buildGlossary();
+
+// ============================================
+// I18N RERENDER
+// ============================================
+function rerenderAll() {
+  applyLocale();
+  buildTable('table', (el) => openModal(el), '');
+  buildTable('table-timeline', (el) => openModal(el), 't-');
+  applyColorBy(activeColorMode);
+  applyFilters();
+  buildBodyMode();
+  buildGlossary();
+  molBuildPalette();
+  molBuildRecipes();
+  applyTimeline();
+  if (document.getElementById('panel-race')?.classList.contains('active')) {
+    showDifficultyPicker();
+  }
+  if (modalOverlay.classList.contains('open') && window._modalCurrentEl) {
+    renderModalContent(window._modalCurrentEl);
+  }
+}
+window.rerenderAll = rerenderAll;
