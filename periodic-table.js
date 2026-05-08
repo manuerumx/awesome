@@ -1709,8 +1709,14 @@ buildGlossary();
 // ============================================
 function rerenderAll() {
   applyLocale();
-  buildTable('table', (el) => openModal(el), '');
-  buildTable('table-timeline', (el) => openModal(el), 't-');
+  // Update element names in all tables without rebuilding (preserves Maps and listeners)
+  ELEMENTS.forEach(el => {
+    const name = tEl(el, 'name');
+    ['', 'c-', 't-', 'r-'].forEach(prefix => {
+      const nameDiv = document.getElementById(prefix + 'cell-' + el.n)?.querySelector('.name');
+      if (nameDiv) nameDiv.textContent = name;
+    });
+  });
   applyColorBy(activeColorMode);
   applyFilters();
   buildBodyMode();

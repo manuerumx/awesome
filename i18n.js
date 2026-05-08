@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Apply locale without calling rerenderAll (periodic-table.js hasn't run yet)
+  // Apply static data-i18n attrs, then let periodic-table.js re-render dynamic content
   applyLocale();
+  window.rerenderAll?.();
 });
