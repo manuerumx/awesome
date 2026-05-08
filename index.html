@@ -8,24 +8,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="periodic-table.css">
+<script src="locales/en.js"></script>
+<script src="locales/es.js"></script>
+<script src="i18n.js"></script>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
-    <h1>The Awesome Periodic Table <span class="emoji">🧪</span></h1>
-    <p>Click any element to discover its superpowers!</p>
+  <header style="position:relative;">
+    <h1 data-i18n="ui.title">The Awesome Periodic Table <span class="emoji">🧪</span></h1>
+    <p data-i18n="ui.subtitle">Click any element to discover its superpowers!</p>
   </header>
 
   <div class="mode-tabs">
-    <button class="mode-tab active" data-mode="explore">🔬 Explore</button>
-    <button class="mode-tab" data-mode="compare">⚖️ Compare</button>
-    <button class="mode-tab" data-mode="timeline">📜 Timeline</button>
-    <button class="mode-tab" data-mode="quiz">🎮 Quiz</button>
-    <button class="mode-tab" data-mode="molecule">⚗️ Build</button>
-    <button class="mode-tab" data-mode="race">🏁 Race</button>
-    <button class="mode-tab" data-mode="glossary">📖 Glossary</button>
-    <button class="mode-tab" data-mode="body">🫀 Inside You</button>
+    <button class="mode-tab active" data-mode="explore" data-i18n="tab.explore">🔬 Explore</button>
+    <button class="mode-tab" data-mode="compare" data-i18n="tab.compare">⚖️ Compare</button>
+    <button class="mode-tab" data-mode="timeline" data-i18n="tab.timeline">📜 Timeline</button>
+    <button class="mode-tab" data-mode="quiz" data-i18n="tab.quiz">🎮 Quiz</button>
+    <button class="mode-tab" data-mode="molecule" data-i18n="tab.build">⚗️ Build</button>
+    <button class="mode-tab" data-mode="race" data-i18n="tab.race">🏁 Race</button>
+    <button class="mode-tab" data-mode="glossary" data-i18n="tab.glossary">📖 Glossary</button>
+    <button class="mode-tab" data-mode="body" data-i18n="tab.body">🫀 Inside You</button>
   </div>
 
   <!-- EXPLORE PANEL -->
@@ -33,38 +36,38 @@
     <div class="controls">
       <div class="search-box">
         <span>🔍</span>
-        <input type="text" id="search" placeholder="Search by name, symbol, or number..." />
+        <input type="text" id="search" placeholder="Search by name, symbol, or number..." data-i18n-attr="placeholder:ui.searchPlaceholder" />
       </div>
     </div>
     <div class="color-by-bar">
-      <span class="color-by-label">🎨 Color by:</span>
+      <span class="color-by-label" data-i18n="ui.colorBy">🎨 Color by:</span>
       <div class="color-by-pills" id="colorByPills">
-        <button class="color-pill active" data-color="category">Category</button>
-        <button class="color-pill" data-color="state">State of Matter</button>
-        <button class="color-pill" data-color="discovery">Discovery Era</button>
-        <button class="color-pill" data-color="mass">Atomic Mass</button>
-        <button class="color-pill" data-color="radioactivity">Radioactivity</button>
-        <button class="color-pill" data-color="melt">Melting Point</button>
+        <button class="color-pill active" data-color="category" data-i18n="colorPill.category">Category</button>
+        <button class="color-pill" data-color="state" data-i18n="colorPill.state">State of Matter</button>
+        <button class="color-pill" data-color="discovery" data-i18n="colorPill.discovery">Discovery Era</button>
+        <button class="color-pill" data-color="mass" data-i18n="colorPill.mass">Atomic Mass</button>
+        <button class="color-pill" data-color="radioactivity" data-i18n="colorPill.radioactivity">Radioactivity</button>
+        <button class="color-pill" data-color="melt" data-i18n="colorPill.melt">Melting Point</button>
       </div>
     </div>
     <div class="filter-pills" id="filters">
-      <button class="pill active" data-cat="all">All</button>
-      <button class="pill" data-cat="alkali">Alkali Metals</button>
-      <button class="pill" data-cat="alkaline">Alkaline Earth</button>
-      <button class="pill" data-cat="transition">Transition Metals</button>
-      <button class="pill" data-cat="post-transition">Post-Transition</button>
-      <button class="pill" data-cat="metalloid">Metalloids</button>
-      <button class="pill" data-cat="nonmetal">Nonmetals</button>
-      <button class="pill" data-cat="halogen">Halogens</button>
-      <button class="pill" data-cat="noble">Noble Gases</button>
-      <button class="pill" data-cat="lanthanide">Lanthanides</button>
-      <button class="pill" data-cat="actinide">Actinides</button>
+      <button class="pill active" data-cat="all" data-i18n="filter.all">All</button>
+      <button class="pill" data-cat="alkali" data-i18n="filter.alkali">Alkali Metals</button>
+      <button class="pill" data-cat="alkaline" data-i18n="filter.alkaline">Alkaline Earth</button>
+      <button class="pill" data-cat="transition" data-i18n="filter.transition">Transition Metals</button>
+      <button class="pill" data-cat="post-transition" data-i18n="filter.post-transition">Post-Transition</button>
+      <button class="pill" data-cat="metalloid" data-i18n="filter.metalloid">Metalloids</button>
+      <button class="pill" data-cat="nonmetal" data-i18n="filter.nonmetal">Nonmetals</button>
+      <button class="pill" data-cat="halogen" data-i18n="filter.halogen">Halogens</button>
+      <button class="pill" data-cat="noble" data-i18n="filter.noble">Noble Gases</button>
+      <button class="pill" data-cat="lanthanide" data-i18n="filter.lanthanide">Lanthanides</button>
+      <button class="pill" data-cat="actinide" data-i18n="filter.actinide">Actinides</button>
     </div>
     <div class="table-scroll">
       <div class="table" id="table"></div>
     </div>
     <div class="legend">
-      <h3>🎨 Color Guide</h3>
+      <h3 data-i18n="legend.title.category">🎨 Color Guide</h3>
       <div class="legend-grid" id="legend"></div>
     </div>
   </div>
@@ -72,12 +75,12 @@
   <!-- COMPARE PANEL -->
   <div class="panel" id="panel-compare">
     <div class="compare-banner">
-      <p>👆 Pick two elements to compare them side-by-side!</p>
+      <p data-i18n="compare.pick">👆 Pick two elements to compare them side-by-side!</p>
       <div class="compare-slots">
         <div class="compare-slot" id="slot1">?</div>
-        <div style="font-weight: 700; font-size: 1.4rem;">vs</div>
+        <div style="font-weight: 700; font-size: 1.4rem;" data-i18n="compare.vs">vs</div>
         <div class="compare-slot" id="slot2">?</div>
-        <button class="btn secondary" id="clearCompare">Reset</button>
+        <button class="btn secondary" id="clearCompare" data-i18n="compare.reset">Reset</button>
       </div>
     </div>
     <div class="table-scroll">
@@ -90,7 +93,7 @@
   <div class="panel" id="panel-timeline">
     <div class="timeline-container">
       <div class="timeline-year" id="tlYear">1700</div>
-      <div class="timeline-info" id="tlInfo">Drag the slider to discover when each element was found!</div>
+      <div class="timeline-info" id="tlInfo" data-i18n="timeline.drag">Drag the slider to discover when each element was found!</div>
       <input type="range" min="1650" max="2025" value="1700" class="timeline-slider" id="tlSlider" />
       <div class="timeline-labels">
         <span>1650</span><span>1800</span><span>1900</span><span>2025</span>
@@ -105,17 +108,17 @@
   <div class="panel" id="panel-quiz">
     <div class="quiz-container">
       <div class="quiz-header">
-        <div class="quiz-stat"><div class="label">Score</div><div class="value score" id="qScore">0</div></div>
-        <div class="quiz-stat"><div class="label">Streak 🔥</div><div class="value streak" id="qStreak">0</div></div>
-        <div class="quiz-stat"><div class="label">Best Streak</div><div class="value" id="qBest">0</div></div>
-        <div class="quiz-stat"><div class="label">Question</div><div class="value" id="qNum">1</div></div>
+        <div class="quiz-stat"><div class="label" data-i18n="quiz.label.score">Score</div><div class="value score" id="qScore">0</div></div>
+        <div class="quiz-stat"><div class="label" data-i18n="quiz.label.streak">Streak 🔥</div><div class="value streak" id="qStreak">0</div></div>
+        <div class="quiz-stat"><div class="label" data-i18n="quiz.label.bestStreak">Best Streak</div><div class="value" id="qBest">0</div></div>
+        <div class="quiz-stat"><div class="label" data-i18n="quiz.label.question">Question</div><div class="value" id="qNum">1</div></div>
       </div>
       <div class="quiz-card">
-        <div class="quiz-question" id="qQuestion">Loading...</div>
+        <div class="quiz-question" id="qQuestion" data-i18n="quiz.loading">Loading...</div>
         <div class="quiz-options" id="qOptions"></div>
         <div class="quiz-feedback" id="qFeedback"></div>
         <div class="quiz-actions">
-          <button class="btn green" id="qNext" style="display:none;">Next Question →</button>
+          <button class="btn green" id="qNext" style="display:none;" data-i18n="quiz.nextQuestion">Next Question →</button>
         </div>
       </div>
     </div>
@@ -126,20 +129,20 @@
     <div class="molecule-lab">
       <div class="mol-result" id="molResult"></div>
       <div class="mol-bench-area">
-        <h3>🧪 Lab Bench</h3>
+        <h3 data-i18n="build.labBench">🧪 Lab Bench</h3>
         <div class="mol-bench empty" id="molBench"></div>
         <div class="mol-formula" id="molFormula"></div>
         <div class="mol-actions">
-          <button class="btn secondary" id="molClear">Clear Bench</button>
-          <button class="btn" id="molHint">💡 Hint</button>
+          <button class="btn secondary" id="molClear" data-i18n="build.clearBench">Clear Bench</button>
+          <button class="btn" id="molHint" data-i18n="build.hint">💡 Hint</button>
         </div>
       </div>
       <div class="mol-palette-area">
-        <h3>⚛️ Elements — drag or click to add</h3>
+        <h3 data-i18n="build.elements">⚛️ Elements — drag or click to add</h3>
         <div class="mol-palette" id="molPalette"></div>
       </div>
       <div class="mol-recipes-area">
-        <h3>📖 Recipe Book <span class="mol-progress" id="molProgress">0 / 20</span></h3>
+        <h3><span data-i18n="build.recipeBook">📖 Recipe Book</span> <span class="mol-progress" id="molProgress">0 / 20</span></h3>
         <div class="mol-recipes" id="molRecipes"></div>
       </div>
     </div>
@@ -148,10 +151,10 @@
   <!-- RACE PANEL -->
   <div class="panel" id="panel-race">
     <div class="race-hud">
-      <div class="race-stat"><div class="label">Time</div><div class="value" id="raceTimer">0.00s</div></div>
-      <div class="race-stat"><div class="label">Round</div><div class="value" id="raceRound">0 / 10</div></div>
-      <div class="race-stat"><div class="label">Best Avg</div><div class="value" id="raceBest">---</div></div>
-      <div class="race-stat"><div class="label">Difficulty</div><div class="value" id="raceDiffLabel">---</div></div>
+      <div class="race-stat"><div class="label" data-i18n="race.label.time">Time</div><div class="value" id="raceTimer">0.00s</div></div>
+      <div class="race-stat"><div class="label" data-i18n="race.label.round">Round</div><div class="value" id="raceRound">0 / 10</div></div>
+      <div class="race-stat"><div class="label" data-i18n="race.label.bestAvg">Best Avg</div><div class="value" id="raceBest">---</div></div>
+      <div class="race-stat"><div class="label" data-i18n="race.label.difficulty">Difficulty</div><div class="value" id="raceDiffLabel">---</div></div>
     </div>
     <div class="race-prompt" id="racePrompt"></div>
     <div class="table-scroll">
@@ -163,15 +166,15 @@
   <div class="panel" id="panel-body">
     <div class="body-container">
       <div class="body-overview">
-        <h2>🫀 You Are Made of Elements!</h2>
-        <p class="body-subtitle">Your body is a walking chemistry lab. Click on any body part to discover what elements are inside!</p>
+        <h2 data-i18n="body.title">🫀 You Are Made of Elements!</h2>
+        <p class="body-subtitle" data-i18n="body.subtitle">Your body is a walking chemistry lab. Click on any body part to discover what elements are inside!</p>
         <div class="body-comp-bar" id="bodyCompBar"></div>
         <div class="body-comp-legend" id="bodyCompLegend"></div>
       </div>
       <div class="body-systems-grid" id="bodySystemsGrid"></div>
       <div class="body-detail" id="bodyDetail"></div>
       <div class="body-fun-facts">
-        <h3>🤯 Mind-Blowing Body Facts</h3>
+        <h3 data-i18n="body.mindBlowing">🤯 Mind-Blowing Body Facts</h3>
         <div class="body-facts-grid" id="bodyFactsGrid"></div>
       </div>
     </div>
@@ -182,15 +185,15 @@
     <div class="glossary-container">
       <div class="glossary-search-box">
         <span>🔍</span>
-        <input type="text" id="glossarySearch" placeholder="Search terms..." />
+        <input type="text" id="glossarySearch" placeholder="Search terms..." data-i18n-attr="placeholder:glossary.searchPlaceholder" />
       </div>
       <div class="glossary-grid" id="glossaryGrid"></div>
     </div>
   </div>
 
   <footer>
-    <div class="footer-dedication">For my son Santiago</div>
-    <div>Made with ⚛️ atoms and 💛 for curious minds &nbsp;·&nbsp; <a href="https://github.com/manuerumx/awesome/" target="_blank" rel="noopener noreferrer">★ GitHub</a></div>
+    <div class="footer-dedication" data-i18n="footer.dedication">For my son Santiago</div>
+    <div><span data-i18n="footer.tagline">Made with ⚛️ atoms and 💛 for curious minds</span> &nbsp;·&nbsp; <a href="https://github.com/manuerumx/awesome/" target="_blank" rel="noopener noreferrer" data-i18n="footer.github">★ GitHub</a></div>
   </footer>
 </div>
 
@@ -213,26 +216,26 @@
         <svg class="atom-svg" id="atomSvg" viewBox="0 0 280 200"></svg>
       </div>
       <div class="fun-fact">
-        <span class="fact-label">💡 Cool Fact</span>
+        <span class="fact-label" data-i18n="modal.section.coolFact">💡 Cool Fact</span>
         <p id="modalFact"></p>
       </div>
       <div class="what-if">
-        <span class="fact-label">🤔 What If?</span>
+        <span class="fact-label" data-i18n="modal.section.whatIf">🤔 What If?</span>
         <p id="modalWhatIf"></p>
       </div>
       <div class="where">
-        <span class="fact-label">🌍 Where on Earth?</span>
+        <span class="fact-label" data-i18n="modal.section.whereOnEarth">🌍 Where on Earth?</span>
         <p id="modalWhere"></p>
       </div>
       <div class="stats-grid">
-        <div class="stat"><div class="label">Atomic Mass</div><div class="value" id="modalMass"></div></div>
-        <div class="stat"><div class="label">State at room temp</div><div class="value" id="modalState"></div></div>
-        <div class="stat"><div class="label">Discovered</div><div class="value" id="modalDiscovered"></div></div>
-        <div class="stat"><div class="label">Group / Period</div><div class="value" id="modalGroup"></div></div>
-        <div class="stat stat-full"><div class="label">🔥 Melting Point</div><div class="value" id="modalMelt"></div></div>
+        <div class="stat"><div class="label" data-i18n="modal.label.atomicMass">Atomic Mass</div><div class="value" id="modalMass"></div></div>
+        <div class="stat"><div class="label" data-i18n="modal.label.state">State at room temp</div><div class="value" id="modalState"></div></div>
+        <div class="stat"><div class="label" data-i18n="modal.label.discovered">Discovered</div><div class="value" id="modalDiscovered"></div></div>
+        <div class="stat"><div class="label" data-i18n="modal.label.groupPeriod">Group / Period</div><div class="value" id="modalGroup"></div></div>
+        <div class="stat stat-full"><div class="label" data-i18n="modal.label.meltingPoint">🔥 Melting Point</div><div class="value" id="modalMelt"></div></div>
       </div>
       <div class="uses">
-        <h3>🛠️ Where you'll find it</h3>
+        <h3 data-i18n="modal.section.whereFind">🛠️ Where you'll find it</h3>
         <ul id="modalUses"></ul>
       </div>
     </div>
