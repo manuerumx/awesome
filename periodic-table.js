@@ -1550,8 +1550,8 @@ function buildBodyMode() {
     card.innerHTML = `
       <style>.body-system-card[data-part="${key}"]::before { background: ${color}; }</style>
       <span class="body-system-emoji">${data.emoji}</span>
-      <span class="body-system-name">${t('body.part.' + key + '.name') || data.name}</span>
-      <span class="body-system-hint">${t('body.part.' + key + '.hint') || BODY_PART_HINTS[key] || ''}</span>
+      <span class="body-system-name">${tOr('body.part.' + key + '.name', data.name)}</span>
+      <span class="body-system-hint">${tOr('body.part.' + key + '.hint', BODY_PART_HINTS[key] || '')}</span>
       <div class="body-system-elements">
         ${data.elements.slice(0, 5).map(el => {
           const info = EL_BY_SYM[el.s];
@@ -1572,7 +1572,7 @@ function buildBodyMode() {
   BODY_FUN_FACTS.forEach((f, i) => {
     const card = document.createElement('div');
     card.className = 'body-fact-card';
-    card.innerHTML = `<span class="body-fact-emoji">${f.emoji}</span><p>${t('body.fact.' + i) || f.text}</p>`;
+    card.innerHTML = `<span class="body-fact-emoji">${f.emoji}</span><p>${tOr('body.fact.' + i, f.text)}</p>`;
     factsGrid.appendChild(card);
   });
 
@@ -1598,8 +1598,8 @@ function showBodyPart(partKey) {
       <div class="body-detail-header" style="background: ${color}22;">
         <span class="body-detail-emoji">${data.emoji}</span>
         <div class="body-detail-header-text">
-          <h3>${t('body.part.' + partKey + '.name') || data.name}</h3>
-          <p>${t('body.part.' + partKey + '.desc') || data.desc}</p>
+          <h3>${tOr('body.part.' + partKey + '.name', data.name)}</h3>
+          <p>${tOr('body.part.' + partKey + '.desc', data.desc)}</p>
         </div>
       </div>
       <div class="body-detail-elements">
@@ -1613,7 +1613,7 @@ function showBodyPart(partKey) {
                 <div class="body-el-sym" style="background: ${catColor};">${el.s}</div>
                 <div class="body-el-info">
                   <div class="body-el-name">${tEl(info, 'name')}</div>
-                  <div class="body-el-role">${t('body.part.' + partKey + '.el.' + el.s + '.role') || el.role}</div>
+                  <div class="body-el-role">${tOr('body.part.' + partKey + '.el.' + el.s + '.role', el.role)}</div>
                 </div>
                 <div class="body-el-bar-wrap">
                   <div class="body-el-bar" style="width:${(el.pct / maxPct) * 100}%;background:${catColor};"></div>
@@ -1684,13 +1684,13 @@ const glossarySearch = document.getElementById('glossarySearch');
 function buildGlossary() {
   glossaryGrid.innerHTML = '';
   GLOSSARY.sort((a, b) => {
-    const ta = t('glossary.' + a._idx + '.term') || a.term;
-    const tb = t('glossary.' + b._idx + '.term') || b.term;
+    const ta = tOr('glossary.' + a._idx + '.term', a.term);
+    const tb = tOr('glossary.' + b._idx + '.term', b.term);
     return ta.localeCompare(tb, currentLocale());
   }).forEach(item => {
-    const term    = t('glossary.' + item._idx + '.term')    || item.term;
-    const def     = t('glossary.' + item._idx + '.def')     || item.def;
-    const example = t('glossary.' + item._idx + '.example') || item.example;
+    const term    = tOr('glossary.' + item._idx + '.term',    item.term);
+    const def     = tOr('glossary.' + item._idx + '.def',     item.def);
+    const example = tOr('glossary.' + item._idx + '.example', item.example);
     const card = document.createElement('div');
     card.className = 'glossary-card';
     card.dataset.term = term.toLowerCase();

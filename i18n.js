@@ -80,9 +80,20 @@ function tEl(el, field) {
   return el[field] !== undefined ? String(el[field]) : dictKey;
 }
 
+// tOr: like t() but returns fallback instead of the raw key when no translation exists
+function tOr(key, fallback, vars) {
+  const activeDic = window.LOCALES[_locale] || {};
+  const enDic = window.LOCALES['en'] || {};
+  if (!Object.prototype.hasOwnProperty.call(activeDic, key) && !Object.prototype.hasOwnProperty.call(enDic, key)) {
+    return fallback;
+  }
+  return t(key, vars);
+}
+
 // Expose functions globally
 window.t = t;
 window.tEl = tEl;
+window.tOr = tOr;
 window.currentLocale = currentLocale;
 window.setLocale = setLocale;
 window.applyLocale = applyLocale;
