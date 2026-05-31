@@ -194,6 +194,50 @@ window.LOCALES.es = {
   'atom.moreShells': { one: '+{count} capa más', other: '+{count} capas más' },
   'atom.shells':     'Capas: {shells}',
 
+  // ── Temperaturas ──────────────────────────────────────────────────────
+  'tab.temperature':       '🌡️ Temperaturas',
+  'temp.title':            '🌡️ ¿Frío o caliente? ¡Tres formas de medir!',
+  'temp.subtitle':         'Kelvin, Celsius y Fahrenheit miden la temperatura — ¡solo cuentan de forma distinta!',
+  'temp.intro':            'La temperatura nos dice qué tan caliente o frío está algo. Los científicos usan tres escalas para medirla. ¡Prueba el conversor de abajo!',
+  'temp.proposedBy':       'Inventada por',
+  'temp.year':             'Año',
+  'temp.zeroMeans':        'El cero significa',
+  'temp.usedFor':          'Se usa en',
+
+  'temp.kelvin.name':      'Kelvin',
+  'temp.kelvin.symbol':    'K',
+  'temp.kelvin.by':        'Lord Kelvin',
+  'temp.kelvin.year':      '1848',
+  'temp.kelvin.zero':      'Lo más frío posible: ¡el cero absoluto!',
+  'temp.kelvin.use':       'Ciencia y espacio 🚀',
+
+  'temp.celsius.name':     'Celsius',
+  'temp.celsius.symbol':   '°C',
+  'temp.celsius.by':       'Anders Celsius',
+  'temp.celsius.year':     '1742',
+  'temp.celsius.zero':     'El agua se congela en hielo ❄️',
+  'temp.celsius.use':      'Casi todo el mundo 🌍',
+
+  'temp.fahrenheit.name':  'Fahrenheit',
+  'temp.fahrenheit.symbol':'°F',
+  'temp.fahrenheit.by':    'Daniel Fahrenheit',
+  'temp.fahrenheit.year':  '1724',
+  'temp.fahrenheit.zero':  'Una mezcla helada de sal y hielo 🧂',
+  'temp.fahrenheit.use':   'Estados Unidos 🇺🇸',
+
+  'temp.ref.title':        '📊 Misma temperatura, números distintos',
+  'temp.ref.event':        'Qué está pasando',
+  'temp.ref.absoluteZero': 'Lo más frío posible (cero absoluto)',
+  'temp.ref.waterFreezes': 'El agua se congela ❄️',
+  'temp.ref.roomTemp':     'Habitación acogedora 🛋️',
+  'temp.ref.bodyTemp':     'Tu cuerpo 🌡️',
+  'temp.ref.waterBoils':   'El agua hierve 🫧',
+
+  'temp.converter.title':  '🔄 Conversor de temperatura',
+  'temp.converter.desc':   '¡Escribe un número en cualquier casilla y mira cómo cambian las demás!',
+
+  'temp.formulas.title':   '✏️ Las fórmulas mágicas',
+
   // ── Pie de página ─────────────────────────────────────────────────────
   'footer.dedication': 'Para mi hijo Santiago',
   'footer.tagline':    'Hecho con ⚛️ átomos y 💛 para mentes curiosas',

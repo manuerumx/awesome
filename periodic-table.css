@@ -1514,3 +1514,120 @@ footer a:hover { text-decoration: underline; }
   .mol-recipes { grid-template-columns: 1fr; }
   .race-diff-grid { grid-template-columns: 1fr; max-width: 260px; }
 }
+
+/* ── Temperatures ────────────────────────────────────────────────────────── */
+.temp-container { max-width: 900px; margin: 0 auto; }
+
+.temp-intro { text-align: center; margin-bottom: 26px; }
+.temp-intro h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
+.temp-subtitle { font-size: 1.02rem; font-weight: 600; opacity: 0.78; margin-bottom: 10px; }
+.temp-lead { font-size: 0.95rem; font-weight: 500; opacity: 0.7; max-width: 640px; margin: 0 auto; line-height: 1.5; }
+
+.temp-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
+.temp-card {
+  background: white;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  padding: 18px 16px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+.temp-card:hover { transform: translate(-2px, -2px) rotate(-1deg); }
+.temp-card.temp-kelvin { border-top: 8px solid var(--accent3); }
+.temp-card.temp-celsius { border-top: 8px solid var(--accent4); }
+.temp-card.temp-fahrenheit { border-top: 8px solid var(--accent); }
+.temp-card-symbol {
+  width: 64px; height: 64px;
+  margin: 0 auto 8px;
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+}
+.temp-kelvin .temp-card-symbol { background: var(--accent3); }
+.temp-celsius .temp-card-symbol { background: var(--accent4); }
+.temp-fahrenheit .temp-card-symbol { background: var(--accent); color: white; }
+.temp-card-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.temp-card-rows { text-align: left; }
+.temp-card-row {
+  display: flex; justify-content: space-between; gap: 8px;
+  padding: 6px 0;
+  border-bottom: 2px dashed rgba(26,26,46,0.15);
+  font-size: 0.82rem;
+}
+.temp-card-row:last-child { border-bottom: none; }
+.temp-card-row .k { font-weight: 600; opacity: 0.65; }
+.temp-card-row .v { font-weight: 700; text-align: right; }
+
+.temp-section {
+  background: white;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-sm);
+}
+.temp-section-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+.temp-section-desc { font-size: 0.9rem; font-weight: 500; opacity: 0.7; margin-bottom: 14px; }
+
+.temp-table-scroll { overflow-x: auto; }
+.temp-table { width: 100%; border-collapse: collapse; min-width: 460px; }
+.temp-table th, .temp-table td {
+  padding: 10px 12px; text-align: right;
+  border-bottom: 2px dashed rgba(26,26,46,0.15);
+  font-size: 0.9rem; font-weight: 600;
+}
+.temp-table th { font-weight: 700; }
+.temp-table th:first-child, .temp-table td:first-child { text-align: left; }
+.temp-table tbody tr:last-child td { border-bottom: none; }
+.temp-table td.temp-kelvin-cell { color: #3b82c4; font-family: 'Space Mono', monospace; }
+.temp-table td.temp-celsius-cell { color: #7a9e1f; font-family: 'Space Mono', monospace; }
+.temp-table td.temp-fahrenheit-cell { color: var(--accent); font-family: 'Space Mono', monospace; }
+.temp-ref-event { font-weight: 700; opacity: 0.85; }
+
+.temp-converter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.temp-input-group {
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.temp-input-group.temp-kelvin { background: rgba(108,180,255,0.18); }
+.temp-input-group.temp-celsius { background: rgba(180,212,78,0.22); }
+.temp-input-group.temp-fahrenheit { background: rgba(255,91,110,0.15); }
+.temp-input-group label { font-size: 0.85rem; font-weight: 700; }
+.temp-input {
+  border: 2.5px solid var(--ink);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 100%;
+  background: white;
+  color: var(--ink);
+  outline: none;
+}
+.temp-input:focus { box-shadow: var(--shadow-sm); }
+
+.temp-formulas { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.temp-formula {
+  background: var(--bg);
+  border: 2.5px solid var(--ink);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow-sm);
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .temp-cards { grid-template-columns: 1fr; }
+  .temp-converter { grid-template-columns: 1fr; }
+}
