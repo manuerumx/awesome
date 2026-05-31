@@ -1715,6 +1715,102 @@ glossarySearch.addEventListener('input', () => {
 buildGlossary();
 
 // ============================================
+// TEMPERATURE: Kelvin / Celsius / Fahrenheit
+// ============================================
+const TEMP_TO_C = { C: v => v, F: v => (v - 32) * 5 / 9, K: v => v - 273.15 };
+const TEMP_FROM_C = { C: c => c, F: c => c * 9 / 5 + 32, K: c => c + 273.15 };
+function tempFmt(n) { return isFinite(n) ? String(Math.round(n * 100) / 100) : ''; }
+
+function renderTemperature() {
+  const root = document.getElementById('tempContainer');
+  if (!root) return;
+
+  const scales = ['kelvin', 'celsius', 'fahrenheit'];
+  const refPoints = [
+    { key: 'temp.ref.absoluteZero', c: -273.15 },
+    { key: 'temp.ref.waterFreezes', c: 0 },
+    { key: 'temp.ref.roomTemp', c: 20 },
+    { key: 'temp.ref.bodyTemp', c: 37 },
+    { key: 'temp.ref.waterBoils', c: 100 },
+  ];
+  const formulas = ['°F = °C × 9/5 + 32', '°C = (°F − 32) × 5/9', 'K = °C + 273.15', '°C = K − 273.15'];
+
+  // All translation strings come from the locale dicts (controlled), and all
+  // numbers are computed — no user input is interpolated into this markup.
+  const cards = scales.map(id => `
+    <div class="temp-card temp-${id}">
+      <div class="temp-card-symbol">${t('temp.' + id + '.symbol')}</div>
+      <div class="temp-card-name">${t('temp.' + id + '.name')}</div>
+      <div class="temp-card-rows">
+        <div class="temp-card-row"><span class="k">${t('temp.proposedBy')}</span><span class="v">${t('temp.' + id + '.by')}</span></div>
+        <div class="temp-card-row"><span class="k">${t('temp.year')}</span><span class="v">${t('temp.' + id + '.year')}</span></div>
+        <div class="temp-card-row"><span class="k">${t('temp.zeroMeans')}</span><span class="v">${t('temp.' + id + '.zero')}</span></div>
+        <div class="temp-card-row"><span class="k">${t('temp.usedFor')}</span><span class="v">${t('temp.' + id + '.use')}</span></div>
+      </div>
+    </div>`).join('');
+
+  const refRows = refPoints.map(p => `
+    <tr>
+      <td class="temp-ref-event">${t(p.key)}</td>
+      <td class="temp-kelvin-cell">${tempFmt(TEMP_FROM_C.K(p.c))} K</td>
+      <td class="temp-celsius-cell">${tempFmt(p.c)} °C</td>
+      <td class="temp-fahrenheit-cell">${tempFmt(TEMP_FROM_C.F(p.c))} °F</td>
+    </tr>`).join('');
+
+  root.innerHTML = `
+    <div class="temp-intro">
+      <h2>${t('temp.title')}</h2>
+      <p class="temp-subtitle">${t('temp.subtitle')}</p>
+      <p class="temp-lead">${t('temp.intro')}</p>
+    </div>
+    <div class="temp-cards">${cards}</div>
+    <div class="temp-section">
+      <h3 class="temp-section-title">${t('temp.ref.title')}</h3>
+      <div class="temp-table-scroll">
+        <table class="temp-table">
+          <thead><tr>
+            <th>${t('temp.ref.event')}</th>
+            <th class="temp-kelvin-cell">${t('temp.kelvin.name')}</th>
+            <th class="temp-celsius-cell">${t('temp.celsius.name')}</th>
+            <th class="temp-fahrenheit-cell">${t('temp.fahrenheit.name')}</th>
+          </tr></thead>
+          <tbody>${refRows}</tbody>
+        </table>
+      </div>
+    </div>
+    <div class="temp-section">
+      <h3 class="temp-section-title">${t('temp.converter.title')}</h3>
+      <p class="temp-section-desc">${t('temp.converter.desc')}</p>
+      <div class="temp-converter">
+        <div class="temp-input-group temp-kelvin"><label>${t('temp.kelvin.name')} (K)</label><input type="number" step="any" class="temp-input" data-unit="K" /></div>
+        <div class="temp-input-group temp-celsius"><label>${t('temp.celsius.name')} (°C)</label><input type="number" step="any" class="temp-input" data-unit="C" /></div>
+        <div class="temp-input-group temp-fahrenheit"><label>${t('temp.fahrenheit.name')} (°F)</label><input type="number" step="any" class="temp-input" data-unit="F" /></div>
+      </div>
+    </div>
+    <div class="temp-section">
+      <h3 class="temp-section-title">${t('temp.formulas.title')}</h3>
+      <div class="temp-formulas">${formulas.map(f => `<div class="temp-formula">${f}</div>`).join('')}</div>
+    </div>`;
+
+  const inputs = {};
+  root.querySelectorAll('.temp-input').forEach(inp => { inputs[inp.dataset.unit] = inp; });
+  function syncFrom(unit) {
+    const raw = inputs[unit].value;
+    if (raw === '' || raw === '-' || isNaN(parseFloat(raw))) {
+      Object.keys(inputs).forEach(u => { if (u !== unit) inputs[u].value = ''; });
+      return;
+    }
+    const c = TEMP_TO_C[unit](parseFloat(raw));
+    Object.keys(inputs).forEach(u => { if (u !== unit) inputs[u].value = tempFmt(TEMP_FROM_C[u](c)); });
+  }
+  Object.keys(inputs).forEach(u => inputs[u].addEventListener('input', () => syncFrom(u)));
+  inputs.C.value = '20';
+  syncFrom('C');
+}
+
+renderTemperature();
+
+// ============================================
 // I18N RERENDER
 // ============================================
 function rerenderAll() {
@@ -1731,6 +1827,7 @@ function rerenderAll() {
   applyFilters();
   buildBodyMode();
   buildGlossary();
+  renderTemperature();
   molBuildPalette();
   molBuildRecipes();
   applyTimeline();

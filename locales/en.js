@@ -193,6 +193,50 @@ window.LOCALES.en = {
   'atom.moreShells': { one: '+{count} more shell', other: '+{count} more shell(s)' },
   'atom.shells':     'Shells: {shells}',
 
+  // ── Temperatures ──────────────────────────────────────────────────────
+  'tab.temperature':       '🌡️ Temperatures',
+  'temp.title':            '🌡️ Hot or Cold? Three Ways to Measure!',
+  'temp.subtitle':         'Kelvin, Celsius, and Fahrenheit all measure temperature — they just count differently!',
+  'temp.intro':            'Temperature tells us how hot or cold something is. Scientists use three different scales to measure it. Try the converter below!',
+  'temp.proposedBy':       'Invented by',
+  'temp.year':             'Year',
+  'temp.zeroMeans':        'Zero means',
+  'temp.usedFor':          'Used for',
+
+  'temp.kelvin.name':      'Kelvin',
+  'temp.kelvin.symbol':    'K',
+  'temp.kelvin.by':        'Lord Kelvin',
+  'temp.kelvin.year':      '1848',
+  'temp.kelvin.zero':      'The coldest possible — absolute zero!',
+  'temp.kelvin.use':       'Science & space 🚀',
+
+  'temp.celsius.name':     'Celsius',
+  'temp.celsius.symbol':   '°C',
+  'temp.celsius.by':       'Anders Celsius',
+  'temp.celsius.year':     '1742',
+  'temp.celsius.zero':     'Water freezes into ice ❄️',
+  'temp.celsius.use':      'Most of the world 🌍',
+
+  'temp.fahrenheit.name':  'Fahrenheit',
+  'temp.fahrenheit.symbol':'°F',
+  'temp.fahrenheit.by':    'Daniel Fahrenheit',
+  'temp.fahrenheit.year':  '1724',
+  'temp.fahrenheit.zero':  'A freezing salty-ice mix 🧂',
+  'temp.fahrenheit.use':   'The USA 🇺🇸',
+
+  'temp.ref.title':        '📊 Same Temperature, Different Numbers',
+  'temp.ref.event':        'What\'s happening',
+  'temp.ref.absoluteZero': 'Coldest possible (absolute zero)',
+  'temp.ref.waterFreezes': 'Water freezes ❄️',
+  'temp.ref.roomTemp':     'Cozy room 🛋️',
+  'temp.ref.bodyTemp':     'Your body 🌡️',
+  'temp.ref.waterBoils':   'Water boils 🫧',
+
+  'temp.converter.title':  '🔄 Temperature Converter',
+  'temp.converter.desc':   'Type a number in any box and watch the others change!',
+
+  'temp.formulas.title':   '✏️ The Magic Formulas',
+
   // ── Footer ────────────────────────────────────────────────────────────
   'footer.dedication': 'For my son Santiago',
   'footer.tagline':    'Made with ⚛️ atoms and 💛 for curious minds',
