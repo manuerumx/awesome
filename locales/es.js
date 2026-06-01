@@ -102,7 +102,7 @@ window.LOCALES.es = {
   'modal.unit.mass':           ' u',
   'modal.unit.celsius':        ' °C',
   'modal.meltUnknown':         'Desconocido',
-  'modal.heliumNeverMelts':    '¡Nunca se solidifica a presión normal!',
+  'modal.heliumNeverMelts':    '¡Nunca se solidifica a presión normal, pero se vuelve líquido a unos 4.2 K (−269°C)!',
 
   // ── Comparar ──────────────────────────────────────────────────────────
   'compare.pick':        '👆 ¡Elige dos elementos para compararlos lado a lado!',

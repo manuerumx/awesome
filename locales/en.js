@@ -101,7 +101,7 @@ window.LOCALES.en = {
   'modal.unit.mass':           ' u',
   'modal.unit.celsius':        ' °C',
   'modal.meltUnknown':         'Unknown',
-  'modal.heliumNeverMelts':    'Never melts at normal pressure!',
+  'modal.heliumNeverMelts':    'Never melts at normal pressure — but turns liquid at about 4.2 K (−269°C)!',
 
   // ── Compare ───────────────────────────────────────────────────────────
   'compare.pick':        '👆 Pick two elements to compare them side-by-side!',
